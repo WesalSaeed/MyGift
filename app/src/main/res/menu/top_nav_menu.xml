@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menuHome"
+        android:icon="@drawable/ic_home1"
+        android:title="Home" />
+    <item
+        android:id="@+id/menuShops"
+        android:icon="@drawable/ic_shop1"
+        android:title="Shop" />
+    <item
+        android:id="@+id/menuCategories"
+        android:icon="@drawable/ic_category1"
+        android:title="Shop By Categories" />
+    <item
+        android:id="@+id/menuMyAccount"
+        android:icon="@drawable/ic_my_account"
+        android:title="My Account" />
+    <item
+        android:id="@+id/menuSellerAccount"
+        android:icon="@drawable/ic_seller"
+        android:title="Join App As Seller" />
+    <item
+        android:id="@+id/menuContact"
+        android:icon="@drawable/ic_contact"
+        android:title="Contact us" />
+    <item
+        android:id="@+id/menuLanguage"
+        android:icon="@drawable/ic_language"
+        android:title="Language" />
+</menu>
