@@ -36,9 +36,14 @@ dependencies {
 //rounded img view
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     //navigation component
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.2.0-rc03'
+    implementation 'androidx.navigation:navigation-fragment:2.3.0'
 
-    implementation 'androidx.navigation:navigation-ui-ktx:2.2.0-rc03'
+    implementation 'androidx.navigation:navigation-ui:2.3.0'
+
+    implementation 'com.github.smarteist:autoimageslider:1.2.0'
+
+    implementation 'com.github.bumptech.glide:glide:4.10.0'
+
 
 
 

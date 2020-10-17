@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/login">
+
     <EditText
         android:id="@+id/etPass"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Password"
-        android:inputType="numberPassword"
+        android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/etEmail"
         app:layout_constraintStart_toStartOf="@+id/etEmail"
         app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
         android:id="@+id/etEmail"
         android:layout_width="0dp"
@@ -43,6 +43,8 @@
         app:layout_constraintEnd_toEndOf="@+id/etPass"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="@+id/etPass"
+        android:clickable="true"
+        android:focusable="true"
         app:layout_constraintTop_toBottomOf="@+id/tvForgetPass" />
     <TextView
         android:id="@+id/tvForgetPass"
@@ -50,7 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:fontFamily="sans-serif-light"
-        android:text="Forget Password"
+        android:text="@string/text_forget_pass"
         app:layout_constraintEnd_toEndOf="@+id/etPass"
         app:layout_constraintTop_toBottomOf="@+id/etPass" />
 
@@ -62,7 +64,7 @@
         android:layout_marginTop="16dp"
         android:clickable="true"
         android:focusable="true"
-        android:text="Do not have account ?  Register Now"
+        android:text="@string/text_register_now"
         app:layout_constraintStart_toStartOf="@+id/btnLogin"
         app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
 </androidx.constraintlayout.widget.ConstraintLayout>

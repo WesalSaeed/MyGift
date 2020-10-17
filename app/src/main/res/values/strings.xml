@@ -2,5 +2,7 @@
     <string name="app_name">MyGift</string>
     <string name="start">Start</string>
     <string name="close">Close</string>
+    <string name="text_register_now">Do not have account ? <u>Register Now</u> </string>
+    <string name="text_forget_pass"><u>Forget Password</u></string>
 
 </resources>

@@ -2,31 +2,31 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/menuHome"
-        android:icon="@drawable/ic_home1"
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_home"
         android:title="Home" />
     <item
-        android:id="@+id/menuShops"
-        android:icon="@drawable/ic_shop1"
-        android:title="Shop" />
+        android:id="@+id/navigation_shops"
+        android:icon="@drawable/ic_shop"
+        android:title="Shops" />
     <item
-        android:id="@+id/menuCategories"
-        android:icon="@drawable/ic_category1"
+        android:id="@+id/navigation_categories"
+        android:icon="@drawable/ic_category"
         android:title="Shop By Categories" />
     <item
-        android:id="@+id/menuMyAccount"
+        android:id="@+id/navigation_myAccount"
         android:icon="@drawable/ic_my_account"
         android:title="My Account" />
     <item
-        android:id="@+id/menuSellerAccount"
+        android:id="@+id/navigation_sellerAccount"
         android:icon="@drawable/ic_seller"
         android:title="Join App As Seller" />
     <item
-        android:id="@+id/menuContact"
+        android:id="@+id/navigation_contact"
         android:icon="@drawable/ic_contact"
         android:title="Contact us" />
     <item
-        android:id="@+id/menuLanguage"
+        android:id="@+id/navigation_language"
         android:icon="@drawable/ic_language"
         android:title="Language" />
 </menu>
