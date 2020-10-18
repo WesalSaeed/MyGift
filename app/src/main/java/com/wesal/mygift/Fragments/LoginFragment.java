@@ -1,5 +1,6 @@
 package com.wesal.mygift.Fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,14 +12,23 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.wesal.mygift.Activities.MainActivity;
 import com.wesal.mygift.R;
+import com.wesal.mygift.interfaces.MediatorInterface;
 
 public class LoginFragment extends Fragment {
+    private MediatorInterface mMediatorCallback;
+
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        mMediatorCallback = (MediatorInterface) context;
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-         super.onCreateView(inflater, container, savedInstanceState);
+        super.onCreateView(inflater, container, savedInstanceState);
         View parentView = inflater.inflate(R.layout.fragment_login, container, false);
 
         TextView tvRegister = parentView.findViewById(R.id.tvRegisterLabel);
@@ -27,13 +37,13 @@ public class LoginFragment extends Fragment {
         tvRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((MainActivity) getActivity()).changeFragmentTo(new RegisterFragment(), RegisterFragment.class.getSimpleName());
+                mMediatorCallback.changeFragmentTo(new RegisterFragment(), RegisterFragment.class.getSimpleName());
             }
         });
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((MainActivity) getActivity()).changeFragmentTo(new HomeFragment(), HomeFragment.class.getSimpleName());
+                mMediatorCallback.changeFragmentTo(new HomeFragment(), HomeFragment.class.getSimpleName());
 
             }
         });

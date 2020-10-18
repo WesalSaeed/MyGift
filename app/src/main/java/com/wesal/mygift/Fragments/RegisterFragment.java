@@ -1,5 +1,6 @@
 package com.wesal.mygift.Fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,14 +12,23 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.wesal.mygift.Activities.MainActivity;
 import com.wesal.mygift.R;
+import com.wesal.mygift.interfaces.MediatorInterface;
 
 public class RegisterFragment extends Fragment {
+    private MediatorInterface mMediatorCallback;
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        mMediatorCallback = (MediatorInterface) context;
+    }
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-         super.onCreateView(inflater, container, savedInstanceState);
+        super.onCreateView(inflater, container, savedInstanceState);
         View parentView = inflater.inflate(R.layout.fragment_register, container, false);
 
         Button btnRegister = parentView.findViewById(R.id.btnRegsiter);
@@ -27,14 +37,14 @@ public class RegisterFragment extends Fragment {
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((MainActivity) getActivity()).changeFragmentTo(new HomeFragment(), HomeFragment.class.getSimpleName());
+                mMediatorCallback.changeFragmentTo(new HomeFragment(), HomeFragment.class.getSimpleName());
             }
         });
 
         tvLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((MainActivity) getActivity()).changeFragmentTo(new LoginFragment(), LoginFragment.class.getSimpleName());
+                mMediatorCallback.changeFragmentTo(new LoginFragment(), LoginFragment.class.getSimpleName());
             }
         });
         return parentView;

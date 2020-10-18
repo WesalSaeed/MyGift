@@ -1,5 +1,6 @@
 package com.wesal.mygift.Fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,19 +18,28 @@ import com.smarteist.autoimageslider.DefaultSliderView;
 import com.smarteist.autoimageslider.IndicatorAnimations;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderLayout;
-import com.wesal.mygift.Activities.MainActivity;
 import com.wesal.mygift.Adapters.BestSellerAdapter;
+import com.wesal.mygift.Adapters.NewProductAdapter;
 import com.wesal.mygift.R;
+import com.wesal.mygift.interfaces.MediatorInterface;
 import com.wesal.mygift.model.BestSeller;
+import com.wesal.mygift.model.NewProduct;
 
 import java.util.ArrayList;
 
 public class HomeFragment extends Fragment {
 
     private SliderLayout sliderLayout;
-
     private BestSellerAdapter madapter;
+    private NewProductAdapter madapter1;
+    private MediatorInterface mMediatorCallback;
 
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        mMediatorCallback = (MediatorInterface) context;
+    }
 
     @Nullable
     @Override
@@ -44,29 +54,77 @@ public class HomeFragment extends Fragment {
         sliderLayout.setScrollTimeInSec(1);
         setSliderViews();
 
-        //recyclerView
+        //Best seller recyclerView
         RecyclerView recyclerView = parentView.findViewById(R.id.recyclerView);
         setupRecyclerView(recyclerView);
 
+        //New product recycleVview
+        RecyclerView NprecyclerView = parentView.findViewById(R.id.recyclerView1);
+        setupRecyclerView1(NprecyclerView);
+
+        //Best seller adapter
         madapter = new BestSellerAdapter();
         CreateDemoData();
-
         madapter.setOnBestSellerItemClickListener(new BestSellerAdapter.OnBestSellerItemClickListener() {
             @Override
             public void onListItemClicked(BestSeller bs) {
-
                 BestSellerDetailsFragment fragment = new BestSellerDetailsFragment();
                 fragment.setProduct(bs);
 
-                ((MainActivity) getContext()).changeFragmentTo(fragment, BestSellerDetailsFragment.class.getSimpleName());
+                mMediatorCallback.changeFragmentTo(fragment, BestSellerDetailsFragment.class.getSimpleName());
             }
         });
 
         recyclerView.setAdapter(madapter);
 
 
+        //New product adapter
+        madapter1 = new NewProductAdapter();
+        CreateDemoDataNp();
+        madapter1.setOnNewProductItemClickListener(new NewProductAdapter.OnNewProductItemClickListener() {
+            @Override
+            public void onListItemClicked(NewProduct np) {
+                NewProductDetailsFragment fragment1 = new NewProductDetailsFragment();
+                fragment1.setProduct(np);
+
+                mMediatorCallback.changeFragmentTo(fragment1, NewProductDetailsFragment.class.getSimpleName());
+            }
+        });
+
+        NprecyclerView.setAdapter(madapter1);
+
+
         return parentView;
     }
+
+    private void CreateDemoDataNp() {
+        ArrayList<NewProduct> npItem = new ArrayList<>();
+        NewProduct p;
+
+        //item 1
+        p = new NewProduct();
+        p.setNpImg(R.drawable.boyimg);
+        p.setNpTitle("Baby Boy Gift");
+        p.setNpPrice("13.000 OMR");
+        p.setNpCategory("Baby Shower");
+        p.setNpAvailability("In stock");
+        p.setNpDescription("Baby Boy set : Baby pillow, Baby shoes, Baby onuses, Baby milk bottle");
+        npItem.add(p);
+
+        //item 2
+        p = new NewProduct();
+        p.setNpImg(R.drawable.girlimg);
+        p.setNpTitle("Baby Girl Gift");
+        p.setNpPrice("30.000 OMR");
+        p.setNpCategory("Baby Shower");
+        p.setNpAvailability("In stock");
+        p.setNpDescription("Baby Girl set : Baby dress, Baby shoes, Baby head band, Baby hair brush, Baby milk bottle");
+        npItem.add(p);
+
+
+        madapter1.update(npItem);
+    }
+
 
     private void CreateDemoData() {
 
@@ -104,6 +162,13 @@ public class HomeFragment extends Fragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL, false);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
+    }
+
+
+    private void setupRecyclerView1(RecyclerView recyclerView1) {
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL, false);
+        recyclerView1.setLayoutManager(layoutManager);
+        recyclerView1.setItemAnimator(new DefaultItemAnimator());
     }
 
 

@@ -12,8 +12,6 @@
         android:layout_marginTop="2dp"
         android:layout_marginEnd="2dp"
         android:layout_marginBottom="2dp"
-        app:cardCornerRadius="12dp"
-        app:cardElevation="6dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,7 +23,7 @@
 
 
             <ImageView
-                android:id="@+id/ivShop"
+                android:id="@+id/ivNpProduct"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
                 android:layout_marginStart="8dp"
@@ -37,21 +35,40 @@
                 tools:srcCompat="@tools:sample/avatars" />
 
             <TextView
-                android:id="@+id/tvShopName"
+                android:id="@+id/tvNpName"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
-                android:layout_marginTop="28dp"
                 android:layout_marginEnd="24dp"
                 android:layout_marginBottom="16dp"
                 android:text="Name"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                app:layout_constraintBottom_toBottomOf="@+id/ivShop"
+                app:layout_constraintBottom_toBottomOf="@+id/ivNpProduct"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/ivShop"
+                app:layout_constraintStart_toEndOf="@+id/ivNpProduct"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.258" />
+
+            <TextView
+                android:id="@+id/tvNpCategory"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Category"
+                app:layout_constraintEnd_toEndOf="@+id/tvNpName"
+                app:layout_constraintStart_toStartOf="@+id/tvNpName"
+                app:layout_constraintTop_toBottomOf="@+id/tvNpName" />
+
+            <TextView
+                android:id="@+id/tvNpPrice"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Price"
+                app:layout_constraintEnd_toEndOf="@+id/tvNpCategory"
+                app:layout_constraintStart_toStartOf="@+id/tvNpName"
+                app:layout_constraintTop_toBottomOf="@+id/tvNpCategory" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
