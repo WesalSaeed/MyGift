@@ -1,6 +1,7 @@
 package com.wesal.mygift.Fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.wesal.mygift.Activities.MainActivity;
 import com.wesal.mygift.R;
 import com.wesal.mygift.interfaces.MediatorInterface;
 
@@ -43,7 +45,7 @@ public class LoginFragment extends Fragment {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mMediatorCallback.changeFragmentTo(new HomeFragment(), HomeFragment.class.getSimpleName());
+               startActivity(new Intent(getActivity(), MainActivity.class));
 
             }
         });

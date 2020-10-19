@@ -5,24 +5,33 @@
     android:id="@+id/mobile_navigation"
     app:startDestination="@id/navigation_home">
 
+                <!--
+                R.id.navigation_shops,
+                R.id.navigation_categories,
+                R.id.navigation_myAccount,
+                R.id.navigation_sellerAccount,
+                R.id.navigation_contact,
+                R.id.navigation_language
+                -->
+
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.myapplication.HomeFragment"
+        android:name="com.wesal.mygift.Fragments.HomeFragment"
         android:label="Home"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/navigation_shop"
-        android:name="com.example.myapplication.ShopFragment"
+        android:name="com.wesal.mygift.Fragments.ShopsFragment"
         android:label="Shop"
-        tools:layout="@layout/fragment_shop" />
+        tools:layout="@layout/fragment_shops" />
     <fragment
         android:id="@+id/navigation_categories"
-        android:name="com.example.myapplication.CategoriesFragment"
+        android:name="com.wesal.mygift.Fragments.CategoriesFragment"
         android:label="Categories"
         tools:layout="@layout/fragment_categories" />
     <fragment
         android:id="@+id/navigation_cart"
-        android:name="com.example.myapplication.CartFragment"
+        android:name="com.wesal.mygift.Fragments.CartFragment"
         android:label="Cart"
         tools:layout="@layout/fragment_cart" />
 </navigation>

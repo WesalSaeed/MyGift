@@ -32,13 +32,13 @@ public class HomeFragment extends Fragment {
     private SliderLayout sliderLayout;
     private BestSellerAdapter madapter;
     private NewProductAdapter madapter1;
-    private MediatorInterface mMediatorCallback;
+
 
 
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-        mMediatorCallback = (MediatorInterface) context;
+
     }
 
     @Nullable
@@ -71,7 +71,7 @@ public class HomeFragment extends Fragment {
                 BestSellerDetailsFragment fragment = new BestSellerDetailsFragment();
                 fragment.setProduct(bs);
 
-                mMediatorCallback.changeFragmentTo(fragment, BestSellerDetailsFragment.class.getSimpleName());
+                //mMediatorCallback.changeFragmentTo(fragment, BestSellerDetailsFragment.class.getSimpleName());
             }
         });
 
@@ -87,7 +87,7 @@ public class HomeFragment extends Fragment {
                 NewProductDetailsFragment fragment1 = new NewProductDetailsFragment();
                 fragment1.setProduct(np);
 
-                mMediatorCallback.changeFragmentTo(fragment1, NewProductDetailsFragment.class.getSimpleName());
+                //mMediatorCallback.changeFragmentTo(fragment1, NewProductDetailsFragment.class.getSimpleName());
             }
         });
 
