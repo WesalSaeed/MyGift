@@ -79,16 +79,29 @@ public class MainActivity extends AppCompatActivity implements MediatorInterface
         navigationView.setNavigationItemSelectedListener((NavigationView.OnNavigationItemSelectedListener) this);
         NavigationUI.setupWithNavController(bottomNav, navController);
 
+        //Toolbar toolbar =(Toolbar) findViewById(R.id.toolbar);
+        //setSupportActionBar(toolbar);
+        //getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+
         // getSupportFragmentManager().beginTransaction().replace(R.id.container, new HomeFragment()).commit();
 
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (toggle.onOptionsItemSelected(item)) {
+        int id = item.getItemId();
+
+        if (id == R.id.main_search_icon) {
+            return true;
+        } else if (id == R.id.main_notification_icon) {
+            return true;
+        } else if (id == R.id.main_cart_icon) {
             return true;
         }
-        return true;
+        return super.onOptionsItemSelected(item);
+
+
     }
 
     @Override
