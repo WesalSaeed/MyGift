@@ -49,6 +49,7 @@ public class LoginFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getActivity(), MainActivity.class));
+                getActivity().finish();
 
             }
         });
