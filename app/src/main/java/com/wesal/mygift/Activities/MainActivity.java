@@ -2,15 +2,13 @@ package com.wesal.mygift.Activities;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.FrameLayout;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -23,14 +21,12 @@ import com.wesal.mygift.Fragments.CategoriesFragment;
 import com.wesal.mygift.Fragments.HomeFragment;
 import com.wesal.mygift.Fragments.ShopsFragment;
 import com.wesal.mygift.R;
-import com.wesal.mygift.interfaces.MediatorInterface;
-
-import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity  {
 
     private BottomNavigationView bottomNav;
     private AppBarConfiguration mAppBarConfiguration;
+    private FrameLayout framelayout;
 
     //bottom navigation
     private BottomNavigationView.OnNavigationItemSelectedListener bottomNavMethod = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -40,6 +36,7 @@ public class MainActivity extends AppCompatActivity  {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
                     fragment = new HomeFragment();
+                    // startActivity(new Intent(getActivity(), HomeFragment.class));
                     break;
 
                 case R.id.navigation_shop:
@@ -65,6 +62,7 @@ public class MainActivity extends AppCompatActivity  {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        //getSupportActionBar().setDisplayShowTitleEnabled(false);
 
 
         bottomNav = findViewById(R.id.bottomNavigationView);
@@ -79,13 +77,15 @@ DrawerLayout drawer = findViewById(R.id.drawer_layout);
                 R.id.navigation_sellerAccount,
                 R.id.navigation_contact,
                 R.id.navigation_language
-                )
+        )
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
+        //framelayout= findViewById(R.id.main_framelayout);
+        //setFragment(new HomeFragment());
 
     }
 
@@ -121,6 +121,12 @@ DrawerLayout drawer = findViewById(R.id.drawer_layout);
         }
     }
 
+
+    /*private void setFragment(Fragment fragment){
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(framelayout.getId(),fragment);
+        ft.commit();
+    }*/
 
 }
 

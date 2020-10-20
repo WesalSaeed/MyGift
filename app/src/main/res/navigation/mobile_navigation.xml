@@ -22,7 +22,7 @@
     <fragment
         android:id="@+id/navigation_shop"
         android:name="com.wesal.mygift.Fragments.ShopsFragment"
-        android:label="Shop"
+        android:label="Shops"
         tools:layout="@layout/fragment_shops" />
     <fragment
         android:id="@+id/navigation_categories"
@@ -30,8 +30,19 @@
         android:label="Categories"
         tools:layout="@layout/fragment_categories" />
     <fragment
-        android:id="@+id/navigation_cart"
+        android:id="@+id/navigation_myAccount"
         android:name="com.wesal.mygift.Fragments.CartFragment"
-        android:label="Cart"
-        tools:layout="@layout/fragment_cart" />
+        android:label="My Account"
+        tools:layout="@layout/fragment_customer_profile" />
+    <fragment
+        android:id="@+id/navigation_contact"
+        android:name="com.wesal.mygift.Fragments.CartFragment"
+        android:label="Contact us"
+        tools:layout="@layout/fragment_contact_us" />
+    <fragment
+        android:id="@+id/navigation_language"
+        android:name="com.wesal.mygift.Fragments.CartFragment"
+        android:label="Language"
+        tools:layout="@layout/fragment_language" />
+
 </navigation>

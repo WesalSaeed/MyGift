@@ -15,7 +15,7 @@
 
             <com.smarteist.autoimageslider.SliderLayout
                 android:id="@+id/slider"
-                android:layout_width="391dp"
+                android:layout_width="match_parent"
                 android:layout_height="250dp" />
 
             <TextView

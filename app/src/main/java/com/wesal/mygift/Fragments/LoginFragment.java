@@ -14,6 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.wesal.mygift.Activities.MainActivity;
+import com.wesal.mygift.CustomDialog.ForgetPassDialogFragment;
 import com.wesal.mygift.R;
 import com.wesal.mygift.interfaces.MediatorInterface;
 
@@ -35,6 +36,7 @@ public class LoginFragment extends Fragment {
 
         TextView tvRegister = parentView.findViewById(R.id.tvRegisterLabel);
         Button btnLogin = parentView.findViewById(R.id.btnLogin);
+        TextView tvForgetPass = parentView.findViewById(R.id.tvForgetPass);
 
         tvRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,11 +44,21 @@ public class LoginFragment extends Fragment {
                 mMediatorCallback.changeFragmentTo(new RegisterFragment(), RegisterFragment.class.getSimpleName());
             }
         });
+
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               startActivity(new Intent(getActivity(), MainActivity.class));
+                startActivity(new Intent(getActivity(), MainActivity.class));
 
+            }
+        });
+
+        tvForgetPass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                ForgetPassDialogFragment dialog = new ForgetPassDialogFragment();
+                dialog.show(getChildFragmentManager(), ForgetPassDialogFragment.class.getSimpleName());
             }
         });
 

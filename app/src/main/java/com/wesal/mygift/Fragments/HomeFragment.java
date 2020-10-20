@@ -21,7 +21,6 @@ import com.smarteist.autoimageslider.SliderLayout;
 import com.wesal.mygift.Adapters.BestSellerAdapter;
 import com.wesal.mygift.Adapters.NewProductAdapter;
 import com.wesal.mygift.R;
-import com.wesal.mygift.interfaces.MediatorInterface;
 import com.wesal.mygift.model.BestSeller;
 import com.wesal.mygift.model.NewProduct;
 
@@ -165,11 +164,11 @@ public class HomeFragment extends Fragment {
     }
 
 
-    private void setupRecyclerView1(RecyclerView recyclerView1) {
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL, false);
-        recyclerView1.setLayoutManager(layoutManager);
-        recyclerView1.setItemAnimator(new DefaultItemAnimator());
-    }
+   private void setupRecyclerView1(RecyclerView recyclerView1) {
+       LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL, false);
+       recyclerView1.setLayoutManager(layoutManager);
+       recyclerView1.setItemAnimator(new DefaultItemAnimator());
+   }
 
 
     private void setSliderViews() {
