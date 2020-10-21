@@ -19,11 +19,13 @@ import com.smarteist.autoimageslider.DefaultSliderView;
 import com.smarteist.autoimageslider.IndicatorAnimations;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderLayout;
+import com.wesal.mygift.Activities.SecondActivity;
 import com.wesal.mygift.Adapters.BestSellerAdapter;
 import com.wesal.mygift.Adapters.NewProductAdapter;
 import com.wesal.mygift.R;
 import com.wesal.mygift.interfaces.MediatorInterface;
 import com.wesal.mygift.model.BestSeller;
+import com.wesal.mygift.model.MyConstants;
 import com.wesal.mygift.model.NewProduct;
 
 import java.util.ArrayList;
@@ -71,10 +73,10 @@ public class HomeFragment extends Fragment {
         madapter.setOnBestSellerItemClickListener(new BestSellerAdapter.OnBestSellerItemClickListener() {
             @Override
             public void onItemClicked(BestSeller bs) {
-                BestSellerDetailsFragment fragment = new BestSellerDetailsFragment();
-                fragment.setProduct(bs);
 
-                Intent i = new Intent(HomeFragment.this, BestSellerDetailsFragment.class);
+                Intent i = new Intent(getActivity(), SecondActivity.class);
+                i.putExtra(MyConstants.FRAGMENT_TO_DISPLAY, MyConstants.FRAGMENT_BEST_SELLER);
+                i.putExtra(MyConstants.FRAGMENT_DATA, bs);
                 startActivity(i);
 
 
