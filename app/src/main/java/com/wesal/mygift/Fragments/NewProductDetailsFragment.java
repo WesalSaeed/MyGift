@@ -24,7 +24,7 @@ public class NewProductDetailsFragment extends Fragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View parentView = inflater.inflate(R.layout.fragment_new_product_details, container, false);
 
-        if (getIntent() != null) {
+
             ImageView ivImgNew = parentView.findViewById(R.id.ivNpImage);
             TextView tvNpTitle = parentView.findViewById(R.id.tvNpName);
             TextView tvNpPRice = parentView.findViewById(R.id.tvNpPrice);
@@ -32,7 +32,7 @@ public class NewProductDetailsFragment extends Fragment {
             TextView tvNpCategories = parentView.findViewById(R.id.tvNpCategories);
             TextView tvNpDescription = parentView.findViewById(R.id.tvNpDescription);
 
-            NewProduct np = (NewProduct) getIntent().getSerializableExtra("np");
+            NewProduct np = mNewProduct;
 
             ivImgNew.setImageResource(np.getNpImg());
             tvNpTitle.setText(np.getNpTitle());
@@ -42,7 +42,7 @@ public class NewProductDetailsFragment extends Fragment {
             tvNpDescription.setText(np.getNpDescription());
 
 
-        }
+
 
         return parentView;
 

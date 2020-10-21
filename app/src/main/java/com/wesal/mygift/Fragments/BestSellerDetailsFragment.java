@@ -24,7 +24,7 @@ public class BestSellerDetailsFragment extends Fragment {
         View parentView = inflater.inflate(R.layout.fragment_best_seller_details, container, false);
 
         if (mBestSeller != null) {
-            ImageView ivImgBest = parentView.findViewById(R.id.ivImgBest);
+            ImageView ivImgBest = parentView.findViewById(R.id.ivImage);
             TextView tvTitle = parentView.findViewById(R.id.tvTitle);
             TextView tvPRice = parentView.findViewById(R.id.tvPRice);
             TextView tvAvailability = parentView.findViewById(R.id.tvAvailability);

@@ -7,6 +7,7 @@ import android.os.Handler;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.wesal.mygift.R;
+import com.wesal.mygift.model.MyConstants;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -23,6 +24,7 @@ public class SplashActivity extends AppCompatActivity {
             public void run() {
                 /* Create an Intent that will start the Menu-Activity. */
                 Intent mainIntent = new Intent(SplashActivity.this, SecondActivity.class);
+                mainIntent.putExtra(MyConstants.FRAGMENT_TO_DISPLAY, MyConstants.FRAGMENT_LOGIN);
                 startActivity(mainIntent);
                 finish();
             }

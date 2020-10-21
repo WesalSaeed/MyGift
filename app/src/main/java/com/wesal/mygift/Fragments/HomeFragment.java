@@ -95,10 +95,12 @@ public class HomeFragment extends Fragment {
             public void onItemClicked(NewProduct np) {
                 NewProductDetailsFragment fragment1 = new NewProductDetailsFragment();
                 fragment1.setProduct(np);
+/*
 
                 Intent i = new Intent(HomeFragment.this, NewProductDetailsFragment.class);
                 i.putExtra("np", np);
                 startActivity(i);
+*/
 
 
                 // mMediatorCallback.changeFragmentTo(fragment1, NewProductDetailsFragment.class.getSimpleName());
