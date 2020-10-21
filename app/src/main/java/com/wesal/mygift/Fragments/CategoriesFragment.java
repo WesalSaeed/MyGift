@@ -30,18 +30,18 @@ public class CategoriesFragment extends Fragment {
         View parentView = inflater.inflate(R.layout.fragment_categories, container, false);
 
         categoryRecyclerView = parentView.findViewById(R.id.category_recyclerView);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
-        layoutManager.setOrientation(RecyclerView.HORIZONTAL);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        //layoutManager.setOrientation(RecyclerView.HORIZONTAL);
         categoryRecyclerView.setLayoutManager(layoutManager);
 
         ArrayList<Category> categoryList = new ArrayList<Category>();
-        categoryList.add(new Category("link", "Graduation"));
-        categoryList.add(new Category("link", "Baby Shower"));
-        categoryList.add(new Category("link", "Anniversaries"));
-        categoryList.add(new Category("link", "Engagement"));
-        categoryList.add(new Category("link", "Wedding"));
-        categoryList.add(new Category("link", "Birthday"));
-        categoryList.add(new Category("link", "National occasions"));
+        categoryList.add(new Category(R.drawable.graduationcategory, "Graduation"));
+        categoryList.add(new Category(R.drawable.babyshowercategory, "Baby Shower"));
+        categoryList.add(new Category(R.drawable.anniversariescategory, "Anniversaries"));
+        categoryList.add(new Category(R.drawable.engagementcategory, "Engagement"));
+        categoryList.add(new Category(R.drawable.weddingcategory, "Wedding"));
+        categoryList.add(new Category(R.drawable.birthdaycategory, "Birthday"));
+        categoryList.add(new Category(R.drawable.nationalcategory, "National occasions"));
 
         categoryAdapter = new CategoryAdapter(categoryList);
         categoryRecyclerView.setAdapter(categoryAdapter);

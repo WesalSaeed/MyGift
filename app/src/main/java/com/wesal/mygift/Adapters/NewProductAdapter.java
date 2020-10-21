@@ -53,7 +53,7 @@ public class NewProductAdapter extends RecyclerView.Adapter<NewProductAdapter.My
             @Override
             public void onClick(View view) {
                 if (mNpListener != null) {
-                    mNpListener.onListItemClicked(newProduct);
+                    mNpListener.onItemClicked(newProduct);
                 }
 
 
@@ -72,7 +72,7 @@ public class NewProductAdapter extends RecyclerView.Adapter<NewProductAdapter.My
     }
 
     public interface OnNewProductItemClickListener {
-        void onListItemClicked(NewProduct np);
+        void onItemClicked(NewProduct np);
     }
 
 

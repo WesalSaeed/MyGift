@@ -52,8 +52,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            categoryIcon = itemView.findViewById(R.id.category_icon);
-            categoryName = itemView.findViewById(R.id.category_name);
+            categoryIcon = itemView.findViewById(R.id.ivCategory);
+            categoryName = itemView.findViewById(R.id.tvCategoryName);
 
 
         }

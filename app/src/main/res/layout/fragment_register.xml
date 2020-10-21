@@ -4,16 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/btnClose"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@color/colorPrimary"
-        android:padding="16dp"
-        android:src="@drawable/ic_close"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -94,12 +84,12 @@
         android:id="@+id/etPass"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/colorPrimary"
         android:ems="10"
         android:hint="Password"
-        android:backgroundTint="@color/colorPrimary"
-        android:textColorHint="@color/colorPrimary"
         android:inputType="textPassword"
+        android:textColorHint="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="@+id/etPhone"
         app:layout_constraintStart_toStartOf="@+id/etPhone"
         app:layout_constraintTop_toBottomOf="@+id/etPhone" />
@@ -109,12 +99,12 @@
         android:id="@+id/etConPass"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/colorPrimary"
         android:ems="10"
         android:hint="Confirm Password"
-        android:backgroundTint="@color/colorPrimary"
-        android:textColorHint="@color/colorPrimary"
         android:inputType="textPassword"
+        android:textColorHint="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="@+id/etPass"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/etPass"

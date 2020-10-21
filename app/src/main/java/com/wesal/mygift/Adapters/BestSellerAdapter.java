@@ -50,11 +50,12 @@ public class BestSellerAdapter extends RecyclerView.Adapter<BestSellerAdapter.My
         holder.tvName.setText(bestSeller.getBsTitle());
         holder.tvCategory.setText(bestSeller.getBsCategory());
         holder.tvPrice.setText(bestSeller.getBsPrice());
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (mListener != null) {
-                    mListener.onListItemClicked(bestSeller);
+                    mListener.onItemClicked(bestSeller);
                 }
 
 
@@ -73,7 +74,7 @@ public class BestSellerAdapter extends RecyclerView.Adapter<BestSellerAdapter.My
     }
 
     public interface OnBestSellerItemClickListener {
-        void onListItemClicked(BestSeller bs);
+        void onItemClicked(BestSeller bs);
     }
 
 

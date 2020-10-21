@@ -20,7 +20,7 @@
         android:label="Home"
         tools:layout="@layout/fragment_home" />
     <fragment
-        android:id="@+id/navigation_shop"
+        android:id="@+id/navigation_shops"
         android:name="com.wesal.mygift.Fragments.ShopsFragment"
         android:label="Shops"
         tools:layout="@layout/fragment_shops" />
@@ -31,12 +31,17 @@
         tools:layout="@layout/fragment_categories" />
     <fragment
         android:id="@+id/navigation_myAccount"
-        android:name="com.wesal.mygift.Fragments.CartFragment"
+        android:name="com.wesal.mygift.Fragments.CustomerProfileFragment"
         android:label="My Account"
         tools:layout="@layout/fragment_customer_profile" />
     <fragment
+        android:id="@+id/navigation_sellerAccount"
+        android:name="com.wesal.mygift.Fragments.SellerRegisterFragment"
+        android:label="Join App As Seller"
+        tools:layout="@layout/fragment_seller_register" />
+    <fragment
         android:id="@+id/navigation_contact"
-        android:name="com.wesal.mygift.Fragments.CartFragment"
+        android:name="com.wesal.mygift.Fragments.ContactUsFragment"
         android:label="Contact us"
         tools:layout="@layout/fragment_contact_us" />
     <fragment

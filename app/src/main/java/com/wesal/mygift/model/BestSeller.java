@@ -1,6 +1,8 @@
 package com.wesal.mygift.model;
 
-public class BestSeller {
+import java.io.Serializable;
+
+public class BestSeller implements Serializable {
     private int bsImg;
     private String bsTitle;
     private String bsPrice;

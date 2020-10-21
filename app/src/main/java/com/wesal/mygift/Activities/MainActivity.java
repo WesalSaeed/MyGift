@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -32,27 +34,27 @@ public class MainActivity extends AppCompatActivity  {
     private BottomNavigationView.OnNavigationItemSelectedListener bottomNavMethod = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            Fragment fragment = null;
+
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    fragment = new HomeFragment();
+                    setFragment(new HomeFragment());
                     // startActivity(new Intent(getActivity(), HomeFragment.class));
-                    break;
+                    return true;
 
                 case R.id.navigation_shop:
-                    fragment = new ShopsFragment();
-                    break;
+                    setFragment(new ShopsFragment());
+                    return true;
 
                 case R.id.navigation_categories:
-                    fragment = new CategoriesFragment();
-                    break;
+                    setFragment(new CategoriesFragment());
+                    return true;
 
                 case R.id.navigation_cart:
-                    fragment = new CartFragment();
-                    break;
+                    setFragment(new CartFragment());
+                    return true;
             }
-            getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
-            return true;
+
+            return false;
         }
     };
 
@@ -67,6 +69,7 @@ public class MainActivity extends AppCompatActivity  {
 
         bottomNav = findViewById(R.id.bottomNavigationView);
 DrawerLayout drawer = findViewById(R.id.drawer_layout);
+
         NavigationView navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
@@ -86,7 +89,7 @@ DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationUI.setupWithNavController(navigationView, navController);
 
         //framelayout= findViewById(R.id.main_framelayout);
-        //setFragment(new HomeFragment());
+        setFragment(new HomeFragment());
 
     }
 
@@ -123,11 +126,13 @@ DrawerLayout drawer = findViewById(R.id.drawer_layout);
     }
 
 
-    /*private void setFragment(Fragment fragment){
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(framelayout.getId(),fragment);
+    public void setFragment(Fragment fragment) {
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.nav_host_fragment, fragment);
+        ft.addToBackStack(null);
         ft.commit();
-    }*/
+    }
 
 }
 
