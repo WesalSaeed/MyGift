@@ -23,7 +23,6 @@ import com.wesal.mygift.Activities.SecondActivity;
 import com.wesal.mygift.Adapters.BestSellerAdapter;
 import com.wesal.mygift.Adapters.NewProductAdapter;
 import com.wesal.mygift.R;
-import com.wesal.mygift.interfaces.MediatorInterface;
 import com.wesal.mygift.model.BestSeller;
 import com.wesal.mygift.model.MyConstants;
 import com.wesal.mygift.model.NewProduct;
@@ -32,7 +31,6 @@ import java.util.ArrayList;
 
 public class HomeFragment extends Fragment {
 
-    private MediatorInterface mMediatorCallback;
     private SliderLayout sliderLayout;
     private BestSellerAdapter madapter;
     private NewProductAdapter madapter1;
@@ -79,8 +77,6 @@ public class HomeFragment extends Fragment {
                 i.putExtra(MyConstants.FRAGMENT_DATA, bs);
                 startActivity(i);
 
-
-                // mMediatorCallback.changeFragmentTo(fragment, BestSellerDetailsFragment.class.getSimpleName());
             }
         });
 
@@ -93,17 +89,12 @@ public class HomeFragment extends Fragment {
         madapter1.setOnNewProductItemClickListener(new NewProductAdapter.OnNewProductItemClickListener() {
             @Override
             public void onItemClicked(NewProduct np) {
-                NewProductDetailsFragment fragment1 = new NewProductDetailsFragment();
-                fragment1.setProduct(np);
-/*
-
-                Intent i = new Intent(HomeFragment.this, NewProductDetailsFragment.class);
-                i.putExtra("np", np);
+                Intent i = new Intent(getActivity(), SecondActivity.class);
+                i.putExtra(MyConstants.FRAGMENT_TO_DISPLAY, MyConstants.FRAGMENT_NEW_PRODUCT);
+                i.putExtra(MyConstants.FRAGMENT_DATA, np);
                 startActivity(i);
-*/
 
 
-                // mMediatorCallback.changeFragmentTo(fragment1, NewProductDetailsFragment.class.getSimpleName());
             }
         });
 

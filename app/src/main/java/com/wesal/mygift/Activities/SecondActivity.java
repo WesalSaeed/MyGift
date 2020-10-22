@@ -9,10 +9,12 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.wesal.mygift.Fragments.BestSellerDetailsFragment;
 import com.wesal.mygift.Fragments.LoginFragment;
+import com.wesal.mygift.Fragments.NewProductDetailsFragment;
 import com.wesal.mygift.R;
 import com.wesal.mygift.interfaces.MediatorInterface;
 import com.wesal.mygift.model.BestSeller;
 import com.wesal.mygift.model.MyConstants;
+import com.wesal.mygift.model.NewProduct;
 
 public class SecondActivity extends AppCompatActivity implements MediatorInterface {
 
@@ -29,12 +31,26 @@ public class SecondActivity extends AppCompatActivity implements MediatorInterfa
                     changeFragmentTo(new LoginFragment(), LoginFragment.class.getSimpleName());
                     break;
 
+                /*case MyConstants.FRAGMENT_HOME:
+                    changeFragmentTo(new HomeFragment(), HomeFragment.class.getSimpleName());
+                    break;*/
+
+
                 case MyConstants.FRAGMENT_BEST_SELLER:
                     BestSellerDetailsFragment fragment = new BestSellerDetailsFragment();
                     BestSeller bs = (BestSeller) getIntent().getSerializableExtra(MyConstants.FRAGMENT_DATA);
                     fragment.setProduct(bs);
                     changeFragmentTo(fragment, LoginFragment.class.getSimpleName());
                     break;
+
+                case MyConstants.FRAGMENT_NEW_PRODUCT:
+                    NewProductDetailsFragment fragmentNp = new NewProductDetailsFragment();
+                    NewProduct np = (NewProduct) getIntent().getSerializableExtra(MyConstants.FRAGMENT_DATANP);
+                    fragmentNp.setProduct(np);
+                    changeFragmentTo(fragmentNp, LoginFragment.class.getSimpleName());
+                    break;
+
+
             }
         }
 

@@ -24,7 +24,7 @@ public class NewProductDetailsFragment extends Fragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View parentView = inflater.inflate(R.layout.fragment_new_product_details, container, false);
 
-
+        if (mNewProduct != null) {
             ImageView ivImgNew = parentView.findViewById(R.id.ivNpImage);
             TextView tvNpTitle = parentView.findViewById(R.id.tvNpName);
             TextView tvNpPRice = parentView.findViewById(R.id.tvNpPrice);
@@ -35,12 +35,12 @@ public class NewProductDetailsFragment extends Fragment {
             NewProduct np = mNewProduct;
 
             ivImgNew.setImageResource(np.getNpImg());
-            tvNpTitle.setText(np.getNpTitle());
-            tvNpPRice.setText(np.getNpPrice());
-            tvNpAvailability.setText((np.getNpAvailability()));
-            tvNpCategories.setText(np.getNpCategory());
-            tvNpDescription.setText(np.getNpDescription());
-
+            tvNpTitle.setText("Title : " + np.getNpTitle());
+            tvNpPRice.setText("Price : " + np.getNpPrice());
+            tvNpAvailability.setText(("Availability : " + np.getNpAvailability()));
+            tvNpCategories.setText("Category : " + np.getNpCategory());
+            tvNpDescription.setText("Description : " + np.getNpDescription());
+        }
 
 
 

@@ -7,8 +7,8 @@
 
     <ImageView
         android:id="@+id/ivImage"
-        android:layout_width="124dp"
-        android:layout_height="124dp"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
         android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -54,26 +54,27 @@
         app:layout_constraintTop_toBottomOf="@+id/tvPRice" />
 
     <Button
-        android:id="@+id/btnBuy"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="268dp"
-        android:backgroundTint="#FC9B9B"
-        android:text="Buy now"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnAddToCart"
-        app:layout_constraintTop_toBottomOf="@+id/tvDescription" />
-
-    <Button
         android:id="@+id/btnAddToCart"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="268dp"
+        android:layout_marginTop="68dp"
         android:backgroundTint="#DCD2D2"
         android:text="Add to cart"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.298"
+        app:layout_constraintHorizontal_bias="0.144"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDescription" />
+
+    <Button
+        android:id="@+id/btnBuy"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:backgroundTint="#009688"
+        android:text="Buy now"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.344"
+        app:layout_constraintStart_toEndOf="@+id/btnAddToCart"
         app:layout_constraintTop_toBottomOf="@+id/tvDescription" />
 
     <TextView
@@ -101,4 +102,5 @@
         app:layout_constraintEnd_toEndOf="@+id/tvAvailability"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvAvailability" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

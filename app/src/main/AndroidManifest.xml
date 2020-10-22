@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.SecondActivity"/>
+        <activity android:name=".Activities.SellerActivity"></activity>
+        <activity android:name=".Activities.SecondActivity" />
         <activity
             android:name=".Activities.SplashActivity"
             android:theme="@style/SplashTheme">
@@ -19,7 +20,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.MainActivity" android:theme="@style/SideMenu" />
+        <activity
+            android:name=".Activities.MainActivity"
+            android:theme="@style/SideMenu" />
     </application>
 
 </manifest>
