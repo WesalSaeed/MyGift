@@ -26,20 +26,19 @@ public class NewProductDetailsFragment extends Fragment {
 
         if (mNewProduct != null) {
             ImageView ivImgNew = parentView.findViewById(R.id.ivNpImage);
-            TextView tvNpTitle = parentView.findViewById(R.id.tvNpName);
+            TextView tvNpTitle = parentView.findViewById(R.id.tvNpTitle);
             TextView tvNpPRice = parentView.findViewById(R.id.tvNpPrice);
             TextView tvNpAvailability = parentView.findViewById(R.id.tvNpAvailability);
             TextView tvNpCategories = parentView.findViewById(R.id.tvNpCategories);
             TextView tvNpDescription = parentView.findViewById(R.id.tvNpDescription);
 
-            NewProduct np = mNewProduct;
 
-            ivImgNew.setImageResource(np.getNpImg());
-            tvNpTitle.setText("Title : " + np.getNpTitle());
-            tvNpPRice.setText("Price : " + np.getNpPrice());
-            tvNpAvailability.setText(("Availability : " + np.getNpAvailability()));
-            tvNpCategories.setText("Category : " + np.getNpCategory());
-            tvNpDescription.setText("Description : " + np.getNpDescription());
+            ivImgNew.setImageResource(mNewProduct.getNpImg());
+            tvNpTitle.setText("Title : " + mNewProduct.getNpTitle());
+            tvNpPRice.setText("Price : " + mNewProduct.getNpPrice());
+            tvNpAvailability.setText(("Availability : " + mNewProduct.getNpAvailability()));
+            tvNpCategories.setText("Category : " + mNewProduct.getNpCategory());
+            tvNpDescription.setText("Description : " +mNewProduct.getNpDescription());
         }
 
 

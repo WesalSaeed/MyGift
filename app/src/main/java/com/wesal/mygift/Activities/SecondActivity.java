@@ -47,7 +47,7 @@ public class SecondActivity extends AppCompatActivity implements MediatorInterfa
                     NewProductDetailsFragment fragmentNp = new NewProductDetailsFragment();
                     NewProduct np = (NewProduct) getIntent().getSerializableExtra(MyConstants.FRAGMENT_DATANP);
                     fragmentNp.setProduct(np);
-                    changeFragmentTo(fragmentNp, LoginFragment.class.getSimpleName());
+                    changeFragmentTo(fragmentNp, NewProductDetailsFragment.class.getSimpleName());
                     break;
 
 
@@ -66,5 +66,13 @@ public class SecondActivity extends AppCompatActivity implements MediatorInterfa
             ft.addToBackStack(tag);
         }
         ft.commit();
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (getSupportFragmentManager().getBackStackEntryCount() > 1)
+            super.onBackPressed();
+        else
+            finish();
     }
 }

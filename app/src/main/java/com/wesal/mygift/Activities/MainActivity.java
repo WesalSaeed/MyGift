@@ -24,7 +24,7 @@ import com.wesal.mygift.Fragments.HomeFragment;
 import com.wesal.mygift.Fragments.ShopsFragment;
 import com.wesal.mygift.R;
 
-public class MainActivity extends AppCompatActivity  {
+   public class MainActivity extends AppCompatActivity  {
 
     private BottomNavigationView bottomNav;
     private AppBarConfiguration mAppBarConfiguration;
