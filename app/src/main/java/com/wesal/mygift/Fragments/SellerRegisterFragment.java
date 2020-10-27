@@ -1,6 +1,7 @@
 package com.wesal.mygift.Fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.wesal.mygift.Activities.SellerActivity;
 import com.wesal.mygift.R;
 import com.wesal.mygift.interfaces.MediatorInterface;
 
@@ -57,7 +59,8 @@ public class SellerRegisterFragment extends Fragment {
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mMediatorCallback.changeFragmentTo(new SellerHomeFragment(), SellerHomeFragment.class.getSimpleName());
+                startActivity(new Intent(getActivity(), SellerActivity.class));
+                getActivity().finish();
             }
         });
 
