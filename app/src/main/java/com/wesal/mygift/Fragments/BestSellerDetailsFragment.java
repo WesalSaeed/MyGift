@@ -25,15 +25,15 @@ public class BestSellerDetailsFragment extends Fragment {
 
         if (mBestSeller != null) {
             ImageView ivImgBest = parentView.findViewById(R.id.ivImage);
-            TextView tvTitle = parentView.findViewById(R.id.tvTitle);
-            TextView tvPRice = parentView.findViewById(R.id.tvPRice);
-            TextView tvAvailability = parentView.findViewById(R.id.tvAvailability);
-            TextView tvCategories = parentView.findViewById(R.id.tvCategories);
-            TextView tvDescription = parentView.findViewById(R.id.tvDescription);
+            TextView tvTitle = parentView.findViewById(R.id.tvProductTitle);
+            TextView tvPRice = parentView.findViewById(R.id.tvProductprice);
+            TextView tvAvailability = parentView.findViewById(R.id.tvProductAvailability);
+            TextView tvCategories = parentView.findViewById(R.id.tvProductCategories);
+            TextView tvDescription = parentView.findViewById(R.id.tvProductDescription);
 
             ivImgBest.setImageResource(mBestSeller.getBsImg());
             tvTitle.setText("Title : " + mBestSeller.getBsTitle());
-            tvPRice.setText("Price :" + mBestSeller.getBsPrice());
+            tvPRice.setText("Price :  " + mBestSeller.getBsPrice());
             tvAvailability.setText(("Availability :" + mBestSeller.getBsAvailability()));
             tvCategories.setText("Category :" + mBestSeller.getBsCategory());
             tvDescription.setText("Description :" + mBestSeller.getBsDescription());

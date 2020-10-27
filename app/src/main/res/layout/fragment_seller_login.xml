@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/etPass"
+        android:id="@+id/etSellerPass"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:backgroundTint="#009688"
@@ -25,12 +25,12 @@
         android:inputType="textPassword"
         android:textColorHint="#009688"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/etEmail"
-        app:layout_constraintStart_toStartOf="@+id/etEmail"
+        app:layout_constraintEnd_toEndOf="@+id/etSellerEmail"
+        app:layout_constraintStart_toStartOf="@+id/etSellerEmail"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/etEmail"
+        android:id="@+id/etSellerEmail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -41,11 +41,10 @@
         android:hint="@string/text_email"
         android:inputType="textEmailAddress"
         android:textColorHint="#009688"
-        app:layout_constraintBottom_toTopOf="@+id/etPass"
+        app:layout_constraintBottom_toTopOf="@+id/etSellerPass"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.38"
-        app:layout_constraintStart_toStartOf="parent"
-         />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnLogin"
@@ -55,13 +54,13 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
         android:backgroundTint="#009688"
-        android:text="Login"
-        android:textColor="#ffffff"
-        app:layout_constraintEnd_toEndOf="@+id/etPass"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="@+id/etPass"
         android:clickable="true"
         android:focusable="true"
+        android:text="Login"
+        android:textColor="#ffffff"
+        app:layout_constraintEnd_toEndOf="@+id/etSellerPass"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="@+id/etSellerPass"
         app:layout_constraintTop_toBottomOf="@+id/tvForgetPass" />
 
     <TextView
@@ -74,8 +73,8 @@
         android:focusable="true"
         android:fontFamily="sans-serif-light"
         android:text="@string/text_forget_pass"
-        app:layout_constraintEnd_toEndOf="@+id/etPass"
-        app:layout_constraintTop_toBottomOf="@+id/etPass" />
+        app:layout_constraintEnd_toEndOf="@+id/etSellerPass"
+        app:layout_constraintTop_toBottomOf="@+id/etSellerPass" />
 
     <TextView
         android:id="@+id/tvRegisterLabel"
@@ -97,7 +96,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/etEmail"
+        app:layout_constraintBottom_toTopOf="@+id/etSellerEmail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
