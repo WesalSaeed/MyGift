@@ -19,14 +19,14 @@ import androidx.fragment.app.Fragment;
 import com.wesal.mygift.Activities.SellerActivity;
 import com.wesal.mygift.R;
 import com.wesal.mygift.interfaces.MediatorInterface;
+import com.wesal.mygift.model.Seller;
 
 public class SellerRegisterFragment extends Fragment {
-    private MediatorInterface mMediatorCallback;
+
 
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-        mMediatorCallback = (MediatorInterface) context;
     }
 
     @Nullable
@@ -52,7 +52,8 @@ public class SellerRegisterFragment extends Fragment {
         tvLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mMediatorCallback.changeFragmentTo(new SellerLoginFragment(), SellerLoginFragment.class.getSimpleName());
+                startActivity(new Intent(getActivity(), SellerActivity.class));
+                getActivity().finish();
             }
         });
 

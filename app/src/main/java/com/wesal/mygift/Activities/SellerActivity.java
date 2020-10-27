@@ -12,7 +12,7 @@ import com.wesal.mygift.Fragments.ProductListFragment;
 import com.wesal.mygift.Fragments.SellerProfileFragment;
 import com.wesal.mygift.R;
 
-public class SellerActivity extends AppCompatActivity {
+public class SellerActivity extends AppCompatActivity implements View.OnClickListener {
 
     CardView addNewProduct;
 
@@ -22,7 +22,7 @@ public class SellerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_seller);
 
         addNewProduct = findViewById(R.id.addNewProduct);
-        addNewProduct.setOnClickListener((View.OnClickListener) this);
+        addNewProduct.setOnClickListener(this);
 
     }
 
