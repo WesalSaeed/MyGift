@@ -16,49 +16,18 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
-import com.wesal.mygift.Fragments.CartFragment;
-import com.wesal.mygift.Fragments.CategoriesFragment;
 import com.wesal.mygift.Fragments.HomeFragment;
-import com.wesal.mygift.Fragments.ShopsFragment;
 import com.wesal.mygift.R;
 
    public class MainActivity extends AppCompatActivity  {
 
-    private BottomNavigationView bottomNav;
+
     private AppBarConfiguration mAppBarConfiguration;
     private FrameLayout framelayout;
 
-    //bottom navigation
-    private BottomNavigationView.OnNavigationItemSelectedListener bottomNavMethod = new BottomNavigationView.OnNavigationItemSelectedListener() {
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-            switch (item.getItemId()) {
-                case R.id.navigation_home:
-                    setFragment(new HomeFragment());
-                    // startActivity(new Intent(getActivity(), HomeFragment.class));
-                    return true;
-
-                case R.id.navigation_shop:
-                    setFragment(new ShopsFragment());
-                    return true;
-
-                case R.id.navigation_categories:
-                    setFragment(new CategoriesFragment());
-                    return true;
-
-                case R.id.navigation_cart:
-                    setFragment(new CartFragment());
-                    return true;
-            }
-
-            return false;
-        }
-    };
-
-    @Override
+       @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -67,8 +36,7 @@ import com.wesal.mygift.R;
         //getSupportActionBar().setDisplayShowTitleEnabled(false);
 
 
-        bottomNav = findViewById(R.id.bottomNavigationView);
-DrawerLayout drawer = findViewById(R.id.drawer_layout);
+           DrawerLayout drawer = findViewById(R.id.drawer_layout);
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
@@ -79,6 +47,7 @@ DrawerLayout drawer = findViewById(R.id.drawer_layout);
                 R.id.navigation_categories,
                 R.id.navigation_myAccount,
                 R.id.navigation_sellerAccount,
+                R.id.navigation_myCart,
                 R.id.navigation_contact,
                 R.id.navigation_language
         )

@@ -40,6 +40,11 @@
         android:label="Join App As Seller"
         tools:layout="@layout/fragment_seller_login" />
     <fragment
+        android:id="@+id/navigation_myCart"
+        android:name="com.wesal.mygift.Fragments.CartFragment"
+        android:label="My Cart"
+        tools:layout="@layout/fragment_cart" />
+    <fragment
         android:id="@+id/navigation_contact"
         android:name="com.wesal.mygift.Fragments.ContactUsFragment"
         android:label="Contact us"
