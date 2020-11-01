@@ -1,5 +1,6 @@
 package com.wesal.mygift.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,9 +12,11 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.wesal.mygift.Activities.SecondActivity;
 import com.wesal.mygift.Adapters.CategoryAdapter;
 import com.wesal.mygift.R;
 import com.wesal.mygift.model.Category;
+import com.wesal.mygift.model.MyConstants;
 
 import java.util.ArrayList;
 
@@ -44,6 +47,20 @@ public class CategoriesFragment extends Fragment {
         categoryList.add(new Category(R.drawable.nationalcategory, "National occasions"));
 
         categoryAdapter = new CategoryAdapter(categoryList);
+
+        categoryAdapter.setOnCategoryClickListener(new CategoryAdapter.onCategoryClickListener() {
+            @Override
+            public void onCategoryClicked(Category category) {
+
+                Intent i = new Intent(getActivity(), SecondActivity.class);
+                i.putExtra(MyConstants.FRAGMENT_TO_DISPLAY, MyConstants.FRAGMENT_CATEGORY_LIST);
+                i.putExtra(MyConstants.FRAGMENT_DATA, category);
+                startActivity(i);
+
+
+            }
+        });
+
         categoryRecyclerView.setAdapter(categoryAdapter);
         categoryAdapter.notifyDataSetChanged();
 

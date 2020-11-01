@@ -17,17 +17,16 @@ import androidx.fragment.app.Fragment;
 import com.wesal.mygift.Activities.SellerActivity;
 import com.wesal.mygift.CustomDialog.ForgetPassDialogFragment;
 import com.wesal.mygift.R;
-import com.wesal.mygift.interfaces.MediatorInterface;
 
 public class SellerLoginFragment extends Fragment {
 
-    private MediatorInterface mMediatorCallback;
+    // private MediatorInterface mMediatorCallback;
 
 
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-        mMediatorCallback = (MediatorInterface) context;
+        // mMediatorCallback = (MediatorInterface) context;
     }
 
     @Nullable
@@ -45,7 +44,9 @@ public class SellerLoginFragment extends Fragment {
         tvRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mMediatorCallback.changeFragmentTo(new SellerRegisterFragment(), SellerRegisterFragment.class.getSimpleName());
+                //    mMediatorCallback.changeFragmentTo(new SellerRegisterFragment(), SellerRegisterFragment.class.getSimpleName());
+                startActivity(new Intent(getActivity(), SellerActivity.class));
+                getActivity().finish();
             }
         });
 

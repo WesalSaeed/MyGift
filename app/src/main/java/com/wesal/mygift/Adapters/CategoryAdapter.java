@@ -19,6 +19,7 @@ import java.util.ArrayList;
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHolder> {
 
     private ArrayList<Category> mCategory;
+    private onCategoryClickListener mListener;
 
     public CategoryAdapter(ArrayList<Category> mCategory) {
         this.mCategory = mCategory;
@@ -34,10 +35,19 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull CategoryAdapter.ViewHolder holder, int position) {
 
-        int icon = mCategory.get(position).getCategoryIcon();
-        String name = mCategory.get(position).getCategoryName();
-        holder.setCategoryName(name);
-        holder.setCategoryIcon(icon);
+        final Category c = mCategory.get(position);
+
+        holder.setCategoryName(c.getCategoryName());
+        holder.setCategoryIcon(c.getCategoryIcon());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (mListener != null) {
+                    mListener.onCategoryClicked(c);
+                }
+            }
+        });
     }
 
     @Override
@@ -77,5 +87,14 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
             });
 
         }
+    }
+
+    public void setOnCategoryClickListener(onCategoryClickListener listener) {
+        mListener = listener;
+
+    }
+
+    public interface onCategoryClickListener {
+        void onCategoryClicked(Category category);
     }
 }

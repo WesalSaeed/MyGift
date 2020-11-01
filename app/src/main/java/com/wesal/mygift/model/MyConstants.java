@@ -9,6 +9,8 @@ public class MyConstants {
     //public static final String FRAGMENT_HOME = "fragment_home";
 
     public static final String FRAGMENT_NEW_PRODUCT = "NewProductDetailsFragment";
+    public static final String FRAGMENT_CATEGORY_LIST = "CategoryFragmentList";
+
     public static final String FRAGMENT_DATANP = "DATA";
 
     public static final String FB_KEY_CUSTOMERS = "customers";

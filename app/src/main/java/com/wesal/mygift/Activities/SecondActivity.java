@@ -8,11 +8,13 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.wesal.mygift.Fragments.BestSellerDetailsFragment;
+import com.wesal.mygift.Fragments.CategoryProductsListFragment;
 import com.wesal.mygift.Fragments.LoginFragment;
 import com.wesal.mygift.Fragments.NewProductDetailsFragment;
 import com.wesal.mygift.R;
 import com.wesal.mygift.interfaces.MediatorInterface;
 import com.wesal.mygift.model.BestSeller;
+import com.wesal.mygift.model.Category;
 import com.wesal.mygift.model.MyConstants;
 import com.wesal.mygift.model.NewProduct;
 
@@ -49,6 +51,14 @@ public class SecondActivity extends AppCompatActivity implements MediatorInterfa
                     fragmentNp.setProduct(np);
                     changeFragmentTo(fragmentNp, NewProductDetailsFragment.class.getSimpleName());
                     break;
+
+                case MyConstants.FRAGMENT_CATEGORY_LIST:
+                    CategoryProductsListFragment cpl = new CategoryProductsListFragment();
+                    Category category = (Category) getIntent().getSerializableExtra(MyConstants.FRAGMENT_DATA);
+                    cpl.setCategory(category);
+                    changeFragmentTo(cpl, CategoryProductsListFragment.class.getSimpleName());
+                    break;
+
 
 
             }

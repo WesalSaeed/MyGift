@@ -2,10 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:background="#FFF"
     android:layout_height="match_parent">
 
 
-<EditText
+    <EditText
         android:id="@+id/etPass"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -13,6 +14,7 @@
         android:ems="10"
         android:hint="@string/text_password"
         android:inputType="textPassword"
+        android:text="123456"
         android:textColorHint="#009688"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/etEmail"
@@ -30,12 +32,12 @@
         android:ems="10"
         android:hint="@string/text_email"
         android:inputType="textEmailAddress"
+        android:text="test@gmail.com"
         android:textColorHint="#009688"
         app:layout_constraintBottom_toTopOf="@+id/etPass"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.38"
-        app:layout_constraintStart_toStartOf="parent"
-         />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnLogin"
