@@ -1,52 +1,46 @@
 package com.wesal.mygift.Activities;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
-import com.wesal.mygift.Fragments.AddNewProductFragment;
-import com.wesal.mygift.Fragments.ProductListFragment;
-import com.wesal.mygift.Fragments.SellerProfileFragment;
+import com.wesal.mygift.Fragments.SellerHomefragment;
 import com.wesal.mygift.R;
+import com.wesal.mygift.interfaces.MediatorInterface;
 
-public class SellerActivity extends AppCompatActivity implements View.OnClickListener {
+public class SellerActivity extends AppCompatActivity implements MediatorInterface {
 
-    CardView addNewProduct;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seller);
 
-        addNewProduct = findViewById(R.id.addNewProduct);
-        addNewProduct.setOnClickListener(this);
+        changeFragmentTo(new SellerHomefragment(), SellerHomefragment.class.getSimpleName());
+
 
     }
 
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.addNewProduct:
-                Intent intent = new Intent(SellerActivity.this, AddNewProductFragment.class);
-                startActivity(intent);
-                break;
 
-            case R.id.ListOfProduct:
-                Intent intent1 = new Intent(SellerActivity.this, ProductListFragment.class);
-                startActivity(intent1);
-                break;
-
-            case R.id.orders:
-                break;
-
-            case R.id.UpdateProfile:
-                Intent intent3 = new Intent(SellerActivity.this, SellerProfileFragment.class);
-                startActivity(intent3);
-                break;
-
-
+    @Override
+    public void changeFragmentTo(Fragment fragmentToDisplay, String tag) {
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.fl_host1, fragmentToDisplay, tag);
+        if (fm.findFragmentByTag(tag) == null) {
+            ft.addToBackStack(tag);
         }
+        ft.commit();
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (getSupportFragmentManager().getBackStackEntryCount() > 1)
+            super.onBackPressed();
+        else
+            finish();
     }
 }

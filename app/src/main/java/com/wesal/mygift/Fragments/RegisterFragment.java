@@ -42,7 +42,9 @@ public class RegisterFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
+
         mAuth = FirebaseAuth.getInstance();
+
         View parentView = inflater.inflate(R.layout.fragment_register, container, false);
 
         Button btnRegister = parentView.findViewById(R.id.btnRegsiter);
@@ -107,6 +109,7 @@ public class RegisterFragment extends Fragment {
                             mMediatorCallback.changeFragmentTo(new LoginFragment(), LoginFragment.class.getSimpleName());
 
                             Customer customer = new Customer();
+                            customer.setCustomerId(userFirebaseId);
                             customer.setCustomerFullName(fullName);
                             customer.setCustomerPhone(phone);
                             customer.setCustomerEmail(email);
@@ -133,7 +136,7 @@ public class RegisterFragment extends Fragment {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference(MyConstants.FB_KEY_CUSTOMERS);
 
-        myRef.child(customer.getCustomerEmail()).setValue(customer);
+        myRef.child(customer.getCustomerId()).setValue(customer);
 
 
     }

@@ -1,6 +1,5 @@
 package com.wesal.mygift.Fragments;
 
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -26,7 +25,6 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.wesal.mygift.R;
-import com.wesal.mygift.interfaces.MediatorInterface;
 import com.wesal.mygift.model.MyConstants;
 import com.wesal.mygift.model.Product;
 
@@ -34,28 +32,21 @@ import java.util.UUID;
 
 import static android.app.Activity.RESULT_OK;
 
-public class AddNewProductFragment extends Fragment {
+public class EditProductFragment extends Fragment {
 
     private static final int REQUEST_CODE_GALLERY = 100;
-    private MediatorInterface mMediatorCallback;
+    private Product mProduct;
     private ImageView ivImg;
     private Uri mImgUri;
     private StorageReference mStorageRef;
-
-
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-        mMediatorCallback = (MediatorInterface) context;
-    }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
+        View parentView = inflater.inflate(R.layout.fragment_product_edit, container, false);
 
-        View parentView = inflater.inflate(R.layout.fragment_add_new_product, container, false);
-        //get access to the whole storage
+
         mStorageRef = FirebaseStorage.getInstance().getReference();
 
         final TextInputEditText etProductName = parentView.findViewById(R.id.tietProductName);
@@ -63,8 +54,17 @@ public class AddNewProductFragment extends Fragment {
         final TextInputEditText etProductAvailability = parentView.findViewById(R.id.tietProductAvailability);
         final TextInputEditText etProductCategory = parentView.findViewById(R.id.tietProductCategory);
         final TextInputEditText etProductDesc = parentView.findViewById(R.id.tietProductDescription);
-
         ivImg = parentView.findViewById(R.id.ivImg);
+        Button btnEdit = parentView.findViewById(R.id.btnEdit);
+
+        Glide.with(getContext()).load(mProduct.getImgUrl()).into(ivImg);
+        etProductName.setText(mProduct.getName());
+        etProductPrice.setText(mProduct.getPrice());
+        etProductAvailability.setText(mProduct.getAvailability());
+        etProductCategory.setText(mProduct.getCategory());
+        etProductDesc.setText(mProduct.getDescription());
+
+
         ivImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -72,8 +72,8 @@ public class AddNewProductFragment extends Fragment {
             }
         });
 
-        Button btnSubmit = parentView.findViewById(R.id.btnSubmit);
-        btnSubmit.setOnClickListener(new View.OnClickListener() {
+
+        btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String productName = etProductName.getText().toString();
@@ -94,20 +94,34 @@ public class AddNewProductFragment extends Fragment {
                     etProductDesc.setError("please write Description");
                 } else {
 
-                    Product product = new Product();
+                    Product product = mProduct;
                     product.setName(productName);
                     product.setPrice(productPrice);
                     product.setAvailability(productAvailability);
                     product.setCategory(productCategory);
                     product.setDescription(productDesc);
 
-                    uploadImgToFirebaseStorage(product);
+                    if (mImgUri == null) {
+                        writeProductToFirebaseDB(product);
+                    } else {
+                        deleteOldImg(product);
+                        uploadImgToFirebaseStorage(product);
+                    }
                 }
 
             }
         });
 
+
         return parentView;
+
+
+    }
+
+    private void deleteOldImg(Product product) {
+        StorageReference mStorageRef;
+        mStorageRef = FirebaseStorage.getInstance().getReference().child("productImages/").child(product.getImgUrl());
+        mStorageRef.delete();
     }
 
     private void openGallery() {
@@ -184,10 +198,6 @@ public class AddNewProductFragment extends Fragment {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference(MyConstants.FB_KEY_PRODUCTS);
 
-        String key = myRef.push().getKey();
-
-        product.setId(key);
-
         myRef.child(product.getId()).setValue(product);
 
     }
@@ -217,5 +227,8 @@ public class AddNewProductFragment extends Fragment {
         Glide.with(getActivity())
                 .load(mImgUri)// image to display
                 .into(ivImg);// imageview
+    }
+
+    public void setProduct(Product mProduct) {
     }
 }

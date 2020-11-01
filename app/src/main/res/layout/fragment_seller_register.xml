@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="20dp"
         android:ems="10"
         android:hint="Full Name"
         android:inputType="textPersonName"
@@ -21,10 +21,13 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
+
     <EditText
         android:id="@+id/etPhone"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
         android:ems="10"
         android:hint="Phone"
         android:inputType="phone"
@@ -33,9 +36,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/etEmail"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.443" />
-
-
+        app:layout_constraintVertical_bias="0.364" />
 
     <EditText
         android:id="@+id/etPass"
@@ -95,7 +96,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="204dp"
+        android:layout_marginTop="200dp"
         android:layout_marginEnd="32dp"
         android:backgroundTint="#009688"
         android:text="Register"
@@ -110,7 +111,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="4dp"
         android:text="Already have an account ?  Login"
         app:layout_constraintStart_toStartOf="@+id/btnRegsiter"
         app:layout_constraintTop_toBottomOf="@+id/btnRegsiter" />
@@ -125,18 +126,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etBussName" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="226dp"
-        android:layout_height="189dp"
-        android:layout_marginBottom="1dp"
-        app:layout_constraintBottom_toTopOf="@+id/etFullName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/logo" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

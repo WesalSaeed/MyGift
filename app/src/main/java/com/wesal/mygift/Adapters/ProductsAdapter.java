@@ -1,28 +1,42 @@
 package com.wesal.mygift.Adapters;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.wesal.mygift.R;
+import com.wesal.mygift.model.MyConstants;
 import com.wesal.mygift.model.Product;
 
 import java.util.ArrayList;
 
 public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.MyViewHolder> {
 
+    private final Context mContext;
     private ArrayList<Product> mProducts;
     private OnProductClickedListener mListener;
 
 
-    public ProductsAdapter() {
+    public ProductsAdapter(Context context) {
         mProducts = new ArrayList<>();
+        mContext = context;
     }
 
 
@@ -53,6 +67,15 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.MyView
         holder.tvProductName.setText(product.getName());
         holder.tvProductPrice.setText(product.getPrice());
         holder.tvProductCategory.setText(product.getCategory());
+
+        holder.ibDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showAlertDialog(product);
+
+            }
+        });
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,6 +85,50 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.MyView
                 }
             }
         });
+    }
+
+    private void showAlertDialog(final Product product) {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
+
+        builder.setTitle("Alert");
+        builder.setMessage("Are you sure you to delete " + product.getName() + " From Database!");
+
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+
+        builder.setPositiveButton("Yes, Delete It!", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                deleteProductFromFirebase(product);
+            }
+        });
+
+
+        builder.create().show();
+
+    }
+
+    private void deleteProductFromFirebase(final Product product) {
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference(MyConstants.FB_KEY_PRODUCTS);
+        myRef.child(product.getId()).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
+                    Toast.makeText(mContext, product.getName() + "Deleted Successfully From DB!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        StorageReference mStorageRef;
+        mStorageRef = FirebaseStorage.getInstance().getReference().child("productImages/").child(product.getImgName());
+        mStorageRef.delete();
+
     }
 
     @Override
@@ -88,6 +155,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.MyView
         TextView tvProductName;
         TextView tvProductCategory;
         TextView tvProductPrice;
+        ImageButton ibDelete;
 
 
         public MyViewHolder(@NonNull View itemView) {
@@ -96,6 +164,8 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.MyView
             tvProductName = itemView.findViewById(R.id.tvProductName);
             tvProductCategory = itemView.findViewById(R.id.tvProductCategory);
             tvProductPrice = itemView.findViewById(R.id.tvProductPrice);
+            ibDelete = itemView.findViewById(R.id.ibDelete);
+
         }
     }
 

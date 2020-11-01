@@ -24,6 +24,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:layout_marginTop="36dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginBottom="8dp"
                 android:text="Best Seller :" />
 
             <androidx.recyclerview.widget.RecyclerView
@@ -37,6 +39,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:layout_marginTop="36dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginBottom="8dp"
                 android:text="New Products :" />
 
             <androidx.recyclerview.widget.RecyclerView

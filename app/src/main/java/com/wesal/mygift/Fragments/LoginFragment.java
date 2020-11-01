@@ -51,6 +51,7 @@ public class LoginFragment extends Fragment {
         final EditText etEmail = parentView.findViewById(R.id.etEmail);
         final EditText etPass = parentView.findViewById(R.id.etPass);
 
+
         tvRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -66,6 +67,7 @@ public class LoginFragment extends Fragment {
 
                 String email = etEmail.getText().toString();
                 String pass = etPass.getText().toString();
+
                 if (email.isEmpty()) {
                     etEmail.setError("Please write an email");
                 } else if (pass.isEmpty()) {
@@ -98,7 +100,7 @@ public class LoginFragment extends Fragment {
                             // Sign in success, update UI with the signed-in user's information
 
                             FirebaseUser user = mAuth.getCurrentUser();
-                            Toast.makeText(getContext(), "Login Successful", Toast.LENGTH_SHORT);
+                            Toast.makeText(getContext(), "Login Successful", Toast.LENGTH_SHORT).show();
 
                         } else {
                             // If sign in fails, display a message to the user.

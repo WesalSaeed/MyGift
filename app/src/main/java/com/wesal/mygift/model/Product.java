@@ -8,7 +8,15 @@ public class Product {
     private String Availability;
     private String Category;
     private String Description;
+    private String imgName;
 
+    public String getImgName() {
+        return imgName;
+    }
+
+    public void setImgName(String imgName) {
+        this.imgName = imgName;
+    }
 
     public String getId() {
         return id;

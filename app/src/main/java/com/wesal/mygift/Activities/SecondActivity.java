@@ -61,7 +61,7 @@ public class SecondActivity extends AppCompatActivity implements MediatorInterfa
     public void changeFragmentTo(Fragment fragmentToDisplay, String tag) {
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
-        ft.replace(R.id.fl_host, fragmentToDisplay, tag);
+        ft.replace(R.id.fl_host1, fragmentToDisplay, tag);
         if (fm.findFragmentByTag(tag) == null) {
             ft.addToBackStack(tag);
         }
