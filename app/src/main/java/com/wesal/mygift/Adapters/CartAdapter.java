@@ -58,7 +58,7 @@ public class CartAdapter extends RecyclerView.Adapter {
         switch (mCart.get(position).getType()) {
 
             case CartItem.CART_ITEM:
-                int resource = mCart.get(position).getProductImage();
+               String resource = mCart.get(position).getProductImage();
                 String name = mCart.get(position).getProductTitle();
                 String price = mCart.get(position).getProductPrice();
 
@@ -100,8 +100,8 @@ public class CartAdapter extends RecyclerView.Adapter {
             tvProductQuantity = itemView.findViewById(R.id.tvProductQuantity);
         }
 
-        private void setItemDetails(int resource, String name, String price) {
-            ivProductImg.setImageResource(resource);
+        private void setItemDetails(String resource, String name, String price) {
+            //Glide.with(itemView.getContext()).load(resource).into(ivProductImg);
             tvPName.setText(name);
             tvPprice.setText(price);
             //tvProductQuantity

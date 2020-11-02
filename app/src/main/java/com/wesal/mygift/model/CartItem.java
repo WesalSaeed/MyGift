@@ -6,7 +6,9 @@ public class CartItem {
     public static final int CART_CHECKOUT = 1;
 
     private int type;
-    private int productImage;
+
+    private String productID;
+    private String productImage;
     private String productTitle;
 
 
@@ -18,8 +20,9 @@ public class CartItem {
     private String shipping;
     private String total;
 
-    public CartItem(int type, int productImage, String productTitle, String productPrice, int productQuantity) {
+    public CartItem(int type, String productID, String productImage, String productTitle, String productPrice, int productQuantity) {
         this.type = type;
+        this.productID = productID;
         this.productImage = productImage;
         this.productTitle = productTitle;
         this.productPrice = productPrice;
@@ -41,11 +44,19 @@ public class CartItem {
         this.type = type;
     }
 
-    public int getProductImage() {
+    public String getProductID() {
+        return productID;
+    }
+
+    public void setProductID(String productID) {
+        this.productID = productID;
+    }
+
+    public String getProductImage() {
         return productImage;
     }
 
-    public void setProductImage(int productImage) {
+    public void setProductImage(String productImage) {
         this.productImage = productImage;
     }
 
