@@ -22,6 +22,10 @@
         android:icon="@drawable/ic_seller"
         android:title="Join App As Seller" />
     <item
+        android:id="@+id/navigation_myCart"
+        android:icon="@drawable/ic_cart"
+        android:title="My Cart" />
+    <item
         android:id="@+id/navigation_contact"
         android:icon="@drawable/ic_contact"
         android:title="Contact us" />

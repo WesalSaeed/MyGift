@@ -6,6 +6,7 @@
     android:background="#FFF">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/cartItemRecyclerView"
         android:layout_width="487dp"
         android:layout_height="682dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout3"

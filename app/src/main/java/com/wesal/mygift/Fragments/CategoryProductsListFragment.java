@@ -18,7 +18,6 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -98,13 +97,6 @@ public class CategoryProductsListFragment extends Fragment {
             }
         });
 
-        FloatingActionButton fabAdd = parentView.findViewById(R.id.fabAdd);
-        fabAdd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mMediatorCallback.changeFragmentTo(new AddNewProductFragment(), AddNewProductFragment.class.getSimpleName());
-            }
-        });
 
         return parentView;
     }

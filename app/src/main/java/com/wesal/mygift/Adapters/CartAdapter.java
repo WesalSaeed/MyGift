@@ -66,7 +66,11 @@ public class CartAdapter extends RecyclerView.Adapter {
                 break;
 
             case CartItem.CART_CHECKOUT:
+                String subTotal = mCart.get(position).getSubTotal();
+                String shipping = mCart.get(position).getShipping();
+                String total = mCart.get(position).getTotal();
 
+                ((CartCheckoutViewHolder) holder).setCheckout(subTotal, shipping, total);
 
                 break;
 

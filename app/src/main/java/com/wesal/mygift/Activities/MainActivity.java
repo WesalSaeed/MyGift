@@ -3,6 +3,7 @@ package com.wesal.mygift.Activities;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,23 +30,27 @@ import com.wesal.mygift.R;
 
        @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        //getSupportActionBar().setDisplayShowTitleEnabled(false);
+           super.onCreate(savedInstanceState);
+           setContentView(R.layout.activity_main);
+           Toolbar toolbar = findViewById(R.id.toolbar);
+           setSupportActionBar(toolbar);
+           //getSupportActionBar().setDisplayShowTitleEnabled(false);
 
 
            DrawerLayout drawer = findViewById(R.id.drawer_layout);
 
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home,
-                R.id.navigation_shops,
-                R.id.navigation_categories,
-                R.id.navigation_myAccount,
+           TextView tvUserName = findViewById(R.id.tvUserName);
+           TextView tvSubTitle = findViewById(R.id.tvSubTitle);
+
+           NavigationView navigationView = findViewById(R.id.nav_view);
+
+           // Passing each menu ID as a set of Ids because each
+           // menu should be considered as top level destinations.
+           mAppBarConfiguration = new AppBarConfiguration.Builder(
+                   R.id.navigation_home,
+                   R.id.navigation_shops,
+                   R.id.navigation_categories,
+                   R.id.navigation_myAccount,
                 R.id.navigation_sellerAccount,
                 R.id.navigation_myCart,
                 R.id.navigation_contact,
