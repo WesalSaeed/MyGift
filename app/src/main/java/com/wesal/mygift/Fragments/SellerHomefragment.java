@@ -40,6 +40,8 @@ public class SellerHomefragment extends Fragment implements View.OnClickListener
         UpdateProfile = parentView.findViewById(R.id.UpdateProfile);
 
         addNewProduct.setOnClickListener(this);
+        ListOfProduct.setOnClickListener(this);
+        UpdateProfile.setOnClickListener(this);
 
 
         return parentView;

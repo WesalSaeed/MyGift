@@ -11,6 +11,7 @@ import com.wesal.mygift.Fragments.BestSellerDetailsFragment;
 import com.wesal.mygift.Fragments.CategoryProductsListFragment;
 import com.wesal.mygift.Fragments.LoginFragment;
 import com.wesal.mygift.Fragments.NewProductDetailsFragment;
+import com.wesal.mygift.Fragments.SellerRegisterFragment;
 import com.wesal.mygift.R;
 import com.wesal.mygift.interfaces.MediatorInterface;
 import com.wesal.mygift.model.BestSeller;
@@ -31,6 +32,11 @@ public class SecondActivity extends AppCompatActivity implements MediatorInterfa
 
                 case MyConstants.FRAGMENT_LOGIN:
                     changeFragmentTo(new LoginFragment(), LoginFragment.class.getSimpleName());
+                    break;
+
+
+                case MyConstants.FRAGMENT_SELLER_REGISTER:
+                    changeFragmentTo(new SellerRegisterFragment(), SellerRegisterFragment.class.getSimpleName());
                     break;
 
                 /*case MyConstants.FRAGMENT_HOME:

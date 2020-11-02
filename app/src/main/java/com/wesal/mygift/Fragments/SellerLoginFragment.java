@@ -14,9 +14,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.wesal.mygift.Activities.SecondActivity;
 import com.wesal.mygift.Activities.SellerActivity;
 import com.wesal.mygift.CustomDialog.ForgetPassDialogFragment;
 import com.wesal.mygift.R;
+import com.wesal.mygift.model.MyConstants;
 
 public class SellerLoginFragment extends Fragment {
 
@@ -45,8 +47,12 @@ public class SellerLoginFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 //    mMediatorCallback.changeFragmentTo(new SellerRegisterFragment(), SellerRegisterFragment.class.getSimpleName());
-                startActivity(new Intent(getActivity(), SellerActivity.class));
-                getActivity().finish();
+
+                Intent i = new Intent(getActivity(), SecondActivity.class);
+                i.putExtra(MyConstants.FRAGMENT_TO_DISPLAY, MyConstants.FRAGMENT_SELLER_REGISTER);
+                startActivity(i);
+
+
             }
         });
 
