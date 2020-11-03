@@ -55,6 +55,8 @@ public class SellerRegisterFragment extends Fragment {
         mMediatorCallback = (MediatorInterface) context;
     }
 
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -147,6 +149,10 @@ public class SellerRegisterFragment extends Fragment {
     }
 
     private void registerNewUser(final String email, final String fullName, final String phone, final String pass, final String bussName, final String bussType) {
+
+        Log.w("fblog", "registerNewUser");
+
+
         mAuth.createUserWithEmailAndPassword(email, pass)
                 .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
                     @Override
@@ -168,11 +174,12 @@ public class SellerRegisterFragment extends Fragment {
                             seller.getSellerBussType();
 
                             writeToFirebase(seller);
+                            Log.w("fblog", "createUserWithEmail:Success");
 
 
                         } else {
                             // If sign in fails, display a message to the user.
-                            Log.w("FB-Error", "createUserWithEmail:failure", task.getException());
+                            Log.w("fblog", "createUserWithEmail:failure", task.getException());
                             Toast.makeText(getContext(), "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
 
@@ -189,7 +196,19 @@ public class SellerRegisterFragment extends Fragment {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference(MyConstants.FB_KEY_SELLERS);
 
-        myRef.child(seller.getSellerId()).setValue(seller);
+        Log.d("fblog", "writeToFirebase "+seller.getSellerId());
+
+        myRef.child(seller.getSellerId()).setValue(seller).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
+                    Log.d("fblog", "success");
+                } else {
+                    Log.d("fblog", "error, " + task.getException());
+
+                }
+            }
+        });
     }
 
     private void openGallery() {
