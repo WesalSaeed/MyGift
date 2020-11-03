@@ -127,19 +127,20 @@ public class CategoryProductsListFragment extends Fragment {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference myRef = database.getReference(MyConstants.FB_KEY_PRODUCTS);
 
-        mProduct.clear();
+
         // Read from the database
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
-
+                mProduct.clear();
                 for (DataSnapshot d : dataSnapshot.getChildren()) {
                     Product value = d.getValue(Product.class);
 
-                    if(value.getCategory().equalsIgnoreCase(mCategory.getCategoryName()))
-                    {
+
+                    Log.d("fblog", value.getCategory() + "::" + mCategory.getCategoryName());
+                    if (value.getCategory().equalsIgnoreCase(mCategory.getCategoryName())) {
                         mProduct.add(value);
                     }
                 }
@@ -163,5 +164,6 @@ public class CategoryProductsListFragment extends Fragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(mAdapter);
     }
 }
