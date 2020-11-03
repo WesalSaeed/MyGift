@@ -154,28 +154,35 @@ public class SellerRegisterFragment extends Fragment {
 
 
         mAuth.createUserWithEmailAndPassword(email, pass)
-                .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
-                            Toast.makeText(getContext(), "Registered Successfully !", Toast.LENGTH_SHORT).show();
-                            FirebaseUser firebaseUser = mAuth.getCurrentUser();
-                            String userFirebaseId = firebaseUser.getUid();
+                            try {
 
-                            mMediatorCallback.changeFragmentTo(new SellerLoginFragment(), SellerLoginFragment.class.getSimpleName());
 
-                            Seller seller = new Seller();
-                            seller.setSellerId(userFirebaseId);
-                            seller.setSellerFullName(fullName);
-                            seller.setSellerPhone(phone);
-                            seller.setSellerEmail(email);
-                            seller.setSellerBussName(bussName);
-                            seller.getSellerBussType();
+                                Toast.makeText(getContext(), "Registered Successfully !", Toast.LENGTH_SHORT).show();
+                                FirebaseUser firebaseUser = mAuth.getCurrentUser();
+                                String userFirebaseId = firebaseUser.getUid();
 
-                            writeToFirebase(seller);
-                            Log.w("fblog", "createUserWithEmail:Success");
+                                Seller seller = new Seller();
+                                seller.setSellerId(userFirebaseId);
+                                seller.setSellerFullName(fullName);
+                                seller.setSellerPhone(phone);
+                                seller.setSellerEmail(email);
+                                seller.setSellerBussName(bussName);
+                                seller.getSellerBussType();
 
+                                writeToFirebase(seller);
+
+                                Log.w("fblog", "createUserWithEmail:Success");
+
+                            } catch (Exception e) {
+                                Log.w("fblog", "createUserWithEmail:error " + e.toString());
+
+                                e.printStackTrace();
+                            }
 
                         } else {
                             // If sign in fails, display a message to the user.
