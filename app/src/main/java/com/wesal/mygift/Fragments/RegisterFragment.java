@@ -1,6 +1,7 @@
 package com.wesal.mygift.Fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -30,6 +31,7 @@ import com.wesal.mygift.model.MyConstants;
 public class RegisterFragment extends Fragment {
     private MediatorInterface mMediatorCallback;
     private FirebaseAuth mAuth;
+    private static final int REQUEST_CODE_GALLERY = 100;
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -94,6 +96,24 @@ public class RegisterFragment extends Fragment {
         return parentView;
     }
 
+
+    private void openGallery() {
+        Intent i = new Intent();
+
+        //get content from another app!
+        i.setAction(Intent.ACTION_GET_CONTENT);
+
+        // we need to get image only
+        i.setType("image/*");
+
+        //Create chooser
+        Intent chooser = Intent.createChooser(i, "Pick an Image");
+
+        if (i.resolveActivity(getActivity().getPackageManager()) != null) {  //open an activity and wait for the result
+            startActivityForResult(chooser, REQUEST_CODE_GALLERY);
+        }
+
+    }
 
     private void registerNewUser(final String email, final String fullName, final String phone, final String password) {
         mAuth.createUserWithEmailAndPassword(email, password)

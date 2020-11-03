@@ -1,10 +1,12 @@
 package com.wesal.mygift.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -39,6 +41,17 @@ public class CustomerProfileFragment extends Fragment {
         tvFullName = parentView.findViewById(R.id.tvFullName);
         tvEmail = parentView.findViewById(R.id.tvEmail);
         tvPhone = parentView.findViewById(R.id.tvPhone);
+
+        Button btnLogout = parentView.findViewById(R.id.btnLogout);
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                Intent i = new Intent(getActivity(), LoginFragment.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(i);
+            }
+        });
 
         readCustomerDataFromFirebase();
 
