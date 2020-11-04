@@ -44,7 +44,7 @@ public class CategoriesFragment extends Fragment {
         categoryList.add(new Category(R.drawable.engagementcategory, "Engagement"));
         categoryList.add(new Category(R.drawable.weddingcategory, "Wedding"));
         categoryList.add(new Category(R.drawable.birthdaycategory, "Birthday"));
-        categoryList.add(new Category(R.drawable.nationalcategory, "National occasions"));
+        categoryList.add(new Category(R.drawable.nationalcategory, "National Occasions"));
 
         categoryAdapter = new CategoryAdapter(categoryList);
 
