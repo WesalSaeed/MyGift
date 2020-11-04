@@ -60,7 +60,7 @@ public class EditProductFragment extends Fragment {
         Glide.with(getContext()).load(mProduct.getImgUrl()).into(ivImg);
         etProductName.setText(mProduct.getName());
         etProductPrice.setText(mProduct.getPrice());
-        etProductAvailability.setText(mProduct.getAvailability());
+   //     etProductAvailability.setText(mProduct.getAailability());
         etProductCategory.setText(mProduct.getCategory());
         etProductDesc.setText(mProduct.getDescription());
 
@@ -97,7 +97,7 @@ public class EditProductFragment extends Fragment {
                     Product product = mProduct;
                     product.setName(productName);
                     product.setPrice(productPrice);
-                    product.setAvailability(productAvailability);
+                    //product.setAvailability(productAvailability);
                     product.setCategory(productCategory);
                     product.setDescription(productDesc);
 

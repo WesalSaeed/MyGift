@@ -5,10 +5,12 @@ public class Product {
     private String imgUrl;
     private String Name;
     private String price;
-    private String Availability;
     private String Category;
     private String Description;
     private String imgName;
+    private int quantity;
+    private int userSelectedQuantity;
+
 
     public String getImgName() {
         return imgName;
@@ -50,13 +52,6 @@ public class Product {
         this.price = price;
     }
 
-    public String getAvailability() {
-        return Availability;
-    }
-
-    public void setAvailability(String availability) {
-        Availability = availability;
-    }
 
     public String getCategory() {
         return Category;
@@ -72,5 +67,21 @@ public class Product {
 
     public void setDescription(String description) {
         Description = description;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public int getUserSelectedQuantity() {
+        return userSelectedQuantity;
+    }
+
+    public void setUserSelectedQuantity(int userSelectedQuantity) {
+        this.userSelectedQuantity = userSelectedQuantity;
     }
 }

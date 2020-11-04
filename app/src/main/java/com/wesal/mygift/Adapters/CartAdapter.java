@@ -9,87 +9,58 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
 import com.wesal.mygift.R;
-import com.wesal.mygift.model.CartItem;
+import com.wesal.mygift.model.Product;
 
 import java.util.ArrayList;
 
-public class CartAdapter extends RecyclerView.Adapter {
+public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartItemViewHolder> {
 
-    private ArrayList<CartItem> mCart;
+    private ArrayList<Product> mCartProducts;
 
-    public CartAdapter(ArrayList<CartItem> mCart) {
-        this.mCart = mCart;
+    public CartAdapter() {
+        mCartProducts = new ArrayList<>();
     }
 
-    @Override
-    public int getItemViewType(int position) {
-        switch (mCart.get(position).getType()) {
-            case 0:
-                return CartItem.CART_ITEM;
-            case 1:
-                return CartItem.CART_CHECKOUT;
-            default:
-                return -1;
-        }
+    public void update(ArrayList<Product> newItems) {
+        mCartProducts = newItems;
+        notifyDataSetChanged();
     }
+
 
     @NonNull
     @Override
-
-    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        switch (viewType) {
-            case CartItem.CART_ITEM:
-                View cartItemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.cart_list_item, parent, false);
-                return new CartItemViewHolder(cartItemView);
-
-            case CartItem.CART_CHECKOUT:
-                View cartTotalView = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_cart_checkout, parent, false);
-                return new CartCheckoutViewHolder(cartTotalView);
-            default:
-                return null;
-        }
+    public CartItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View cartItemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.cart_list_item, parent, false);
+        return new CartItemViewHolder(cartItemView);
     }
-
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CartItemViewHolder holder, int position) {
+        Product p = mCartProducts.get(position);
 
-        switch (mCart.get(position).getType()) {
+        Glide.with(holder.itemView.getContext()).load(p.getImgUrl()).into(holder.ivProductImg);
+        holder.tvPName.setText(p.getName());
+        holder.tvPprice.setText(p.getPrice());
+        holder.enbCounter.setRange(1, p.getQuantity());
 
-            case CartItem.CART_ITEM:
-               String resource = mCart.get(position).getProductImage();
-                String name = mCart.get(position).getProductTitle();
-                String price = mCart.get(position).getProductPrice();
-
-                ((CartItemViewHolder) holder).setItemDetails(resource, name, price);
-                break;
-
-            case CartItem.CART_CHECKOUT:
-                String subTotal = mCart.get(position).getSubTotal();
-                String shipping = mCart.get(position).getShipping();
-                String total = mCart.get(position).getTotal();
-
-                ((CartCheckoutViewHolder) holder).setCheckout(subTotal, shipping, total);
-
-                break;
-
-            default:
-                return;
-        }
     }
+
 
     @Override
     public int getItemCount() {
-        return mCart.size();
+        return mCartProducts.size();
     }
 
     class CartItemViewHolder extends RecyclerView.ViewHolder {
 
-        private ImageView ivProductImg;
-        private TextView tvPName;
-        private TextView tvPprice;
-        private TextView tvProductQuantity;
+        ImageView ivProductImg;
+        TextView tvPName;
+        TextView tvPprice;
+        TextView tvProductQuantity;
+        ElegantNumberButton enbCounter;
 
 
         public CartItemViewHolder(@NonNull View itemView) {
@@ -98,33 +69,10 @@ public class CartAdapter extends RecyclerView.Adapter {
             tvPName = itemView.findViewById(R.id.tvPName);
             tvPprice = itemView.findViewById(R.id.tvPprice);
             tvProductQuantity = itemView.findViewById(R.id.tvProductQuantity);
+            enbCounter = itemView.findViewById(R.id.enbProductQuantity);
         }
 
-        private void setItemDetails(String resource, String name, String price) {
-            //Glide.with(itemView.getContext()).load(resource).into(ivProductImg);
-            tvPName.setText(name);
-            tvPprice.setText(price);
-            //tvProductQuantity
-        }
     }
 
-    class CartCheckoutViewHolder extends RecyclerView.ViewHolder {
-        private TextView tvSubtotal;
-        private TextView tvShipping;
-        private TextView tvOrderTotal;
 
-        public CartCheckoutViewHolder(@NonNull View itemView) {
-            super(itemView);
-            tvSubtotal = itemView.findViewById(R.id.ivProductImg);
-            tvShipping = itemView.findViewById(R.id.tvShipping);
-            tvOrderTotal = itemView.findViewById(R.id.tvOrderTotal);
-
-        }
-
-        private void setCheckout(String subTotal, String shipping, String total) {
-            tvSubtotal.setText(subTotal);
-            tvShipping.setText(shipping);
-            tvOrderTotal.setText(total);
-        }
-    }
 }

@@ -97,7 +97,7 @@ public class AddNewProductFragment extends Fragment {
                     Product product = new Product();
                     product.setName(productName);
                     product.setPrice(productPrice);
-                    product.setAvailability(productAvailability);
+                 //   product.setAvailability(productAvailability);
                     product.setCategory(productCategory);
                     product.setDescription(productDesc);
 
