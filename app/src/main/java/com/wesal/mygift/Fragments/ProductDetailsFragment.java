@@ -59,11 +59,12 @@ public class ProductDetailsFragment extends Fragment {
         if (mProduct != null) {
 
             Glide.with(getContext()).load(mProduct.getImgUrl()).into(ivImage);
-            tvProductTitle.setText(mProduct.getName());
-            tvProductprice.setText(mProduct.getPrice());
-            tvProductAvailability.setText(mProduct.getAvailability());
-            tvProductCategories.setText(mProduct.getCategory());
-            tvProductDescription.setText(mProduct.getDescription());
+
+            tvProductTitle.setText("Title : " + mProduct.getName());
+            tvProductprice.setText("Price : " + mProduct.getPrice() + " OMR");
+            tvProductAvailability.setText("Availability : " + mProduct.getAvailability());
+            tvProductCategories.setText("Category : " + mProduct.getCategory());
+            tvProductDescription.setText("Description : " + mProduct.getDescription());
 
             ivImage.setOnClickListener(new View.OnClickListener() {
                 @Override
