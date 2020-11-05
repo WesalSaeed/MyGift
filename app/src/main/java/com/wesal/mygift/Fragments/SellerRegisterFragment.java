@@ -172,7 +172,7 @@ public class SellerRegisterFragment extends Fragment {
                                 seller.setSellerPhone(phone);
                                 seller.setSellerEmail(email);
                                 seller.setSellerBussName(bussName);
-                                seller.getSellerBussType();
+                                seller.setSellerBussType(bussType);
 
                                 writeToFirebase(seller);
 

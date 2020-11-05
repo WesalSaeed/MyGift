@@ -79,7 +79,7 @@ public class SellerProfileFragment extends Fragment {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
                 Seller value = dataSnapshot.getValue(Seller.class);
-                Glide.with(getContext()).load(value.getSellerIconUrl()).into(ivImg);
+             Glide.with(getContext()).load(value.getSellerIconUrl()).into(ivImg);
                 tvSellerFullName.setText(value.getSellerFullName());
                 tvSellerEmail.setText(value.getSellerEmail());
                 tvSellerPhone.setText(value.getSellerPhone());
