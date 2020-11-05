@@ -12,8 +12,8 @@
         android:layout_height="wrap_content"
         android:backgroundTint="#009688"
         android:ems="10"
-        android:hint="123456"
         android:inputType="textPassword"
+        android:text="123456"
         android:textColorHint="#009688"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/etSellerEmail"
@@ -25,19 +25,16 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="24dp"
         android:backgroundTint="#009688"
         android:ems="10"
-        android:hint="testSeller@gmail.com"
         android:inputType="textEmailAddress"
+        android:text="test31@mail.com"
         android:textColorHint="#009688"
         app:layout_constraintBottom_toTopOf="@+id/etSellerPass"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.38"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnLogin"
@@ -84,16 +81,14 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="239dp"
-        android:layout_height="298dp"
+        android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/etSellerEmail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.45"
         app:srcCompat="@mipmap/logo" />
 
 

@@ -112,8 +112,7 @@ public class SellerRegisterFragment extends Fragment {
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(), SellerActivity.class));
-                getActivity().finish();
+
 
                 String email = etEmail.getText().toString();
                 String pass = etPass.getText().toString();
@@ -209,6 +208,8 @@ public class SellerRegisterFragment extends Fragment {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
+                    startActivity(new Intent(getActivity(), SellerActivity.class));
+                    getActivity().finish();
                     Log.d("fblog", "success");
                 } else {
                     Log.d("fblog", "error, " + task.getException());

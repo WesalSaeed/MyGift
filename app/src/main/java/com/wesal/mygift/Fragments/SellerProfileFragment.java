@@ -1,6 +1,5 @@
 package com.wesal.mygift.Fragments;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -54,9 +53,7 @@ public class SellerProfileFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();
-                Intent i = new Intent(getActivity(), SellerLoginFragment.class);
-                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(i);
+                getActivity().finish();
             }
         });
 
@@ -79,7 +76,9 @@ public class SellerProfileFragment extends Fragment {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
                 Seller value = dataSnapshot.getValue(Seller.class);
-             Glide.with(getContext()).load(value.getSellerIconUrl()).into(ivImg);
+                if (value.getSellerIconUrl() != null) {
+                    Glide.with(getContext()).load(value.getSellerIconUrl()).into(ivImg);
+                }
                 tvSellerFullName.setText(value.getSellerFullName());
                 tvSellerEmail.setText(value.getSellerEmail());
                 tvSellerPhone.setText(value.getSellerPhone());

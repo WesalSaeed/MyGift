@@ -77,8 +77,7 @@ public class SellerLoginFragment extends Fragment {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(), SellerActivity.class));
-                getActivity().finish();
+
 
                 String email = etSellerEmail.getText().toString();
                 String pass = etSellerPass.getText().toString();
@@ -107,6 +106,9 @@ public class SellerLoginFragment extends Fragment {
 
                             FirebaseUser user = mAuth.getCurrentUser();
                             Toast.makeText(getContext(), "Login Successful", Toast.LENGTH_SHORT).show();
+
+                            startActivity(new Intent(getActivity(), SellerActivity.class));
+                            getActivity().finish();
 
                         } else {
                             // If sign in fails, display a message to the user.
