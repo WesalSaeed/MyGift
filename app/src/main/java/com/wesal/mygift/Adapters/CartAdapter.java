@@ -9,13 +9,19 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.wesal.mygift.R;
+import com.wesal.mygift.model.MyConstants;
 import com.wesal.mygift.model.Product;
 
 import java.util.ArrayList;
@@ -89,7 +95,17 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartItemViewHo
 
     }
 
-    private void deleteProductFromCart(Product p) {
+    private void deleteProductFromCart(final Product p) {
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference(MyConstants.FB_KEY_CART);
+        myRef.child(p.getId()).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
+                    Toast.makeText(mContext, p.getName() + "Deleted Successfully!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
     }
 

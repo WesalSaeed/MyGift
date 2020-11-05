@@ -51,11 +51,11 @@ import com.wesal.mygift.R;
                    R.id.navigation_shops,
                    R.id.navigation_categories,
                    R.id.navigation_myAccount,
-                R.id.navigation_sellerAccount,
-                R.id.navigation_myCart,
-                R.id.navigation_contact,
-                R.id.navigation_language
-        )
+                   R.id.navigation_sellerAccount,
+                   R.id.navigation_myCart,
+                   R.id.navigation_contact
+
+           )
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
