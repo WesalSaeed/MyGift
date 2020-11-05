@@ -1,16 +1,16 @@
 package com.wesal.mygift.Fragments;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -26,43 +26,48 @@ import com.wesal.mygift.model.Product;
 
 import java.util.ArrayList;
 
-public class CartFragment extends Fragment {
+public class CartCheckoutFragment extends Fragment {
 
-
-    CartAdapter mAdapter;
     ArrayList<Product> mCartProducts;
-
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-    }
+    CartAdapter mAdapter;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View parentView = inflater.inflate(R.layout.fragment_cart, container, false);
-
+        View parentView = inflater.inflate(R.layout.fragment_cart_checkout, container, false);
 
         mCartProducts = new ArrayList<>();
-        mAdapter = new CartAdapter(getContext());
+        mAdapter = new CartAdapter();
 
-        RecyclerView cartItemsRecyclerView = parentView.findViewById(R.id.cartItemRecyclerView);
-        setupRecyclerView(cartItemsRecyclerView);
+        final TextView tvSubTotal = parentView.findViewById(R.id.tvSubTotal);
+        final TextView tvShip = parentView.findViewById(R.id.tvShip);
+        final TextView tvTotal = parentView.findViewById(R.id.tvTotal);
+
+        Button btSubmit = parentView.findViewById(R.id.btSubmit);
+        btSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getContext(), "Thank you for shopping, your order is successfully!.",
+                        Toast.LENGTH_LONG).show();
+            }
+        });
 
 
         readCartProductsFromFB();
+
 
         return parentView;
     }
 
     private void readCartProductsFromFB() {
+
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         FirebaseUser firebaseUser = mAuth.getCurrentUser();
 
 // Write a message to the database
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference(MyConstants.FB_KEY_CUSTOMERS).child(firebaseUser.getUid()).child(MyConstants.FB_KEY_CART);
+        DatabaseReference myRef = database.getReference(MyConstants.FB_KEY_SELLERS).child(firebaseUser.getUid()).child(MyConstants.FB_KEY_ORDERS);
 
 
         myRef.addValueEventListener(new ValueEventListener() {
@@ -76,6 +81,7 @@ public class CartFragment extends Fragment {
 
                 mAdapter.update(mCartProducts);
 
+
             }
 
             @Override
@@ -85,12 +91,5 @@ public class CartFragment extends Fragment {
         });
 
 
-    }
-
-    private void setupRecyclerView(RecyclerView cartItemsRecyclerView) {
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
-        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        cartItemsRecyclerView.setLayoutManager(layoutManager);
-        cartItemsRecyclerView.setAdapter(mAdapter);
     }
 }

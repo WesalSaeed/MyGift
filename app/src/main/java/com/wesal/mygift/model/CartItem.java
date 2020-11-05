@@ -5,7 +5,7 @@ public class CartItem {
     public static final int CART_ITEM = 0;
     public static final int CART_CHECKOUT = 1;
 
-    private int type;
+
 
     private String productID;
     private String productImage;
@@ -20,8 +20,7 @@ public class CartItem {
     private String shipping;
     private String total;
 
-    public CartItem(int type, String productID, String productImage, String productTitle, String productPrice, int productQuantity) {
-        this.type = type;
+    public CartItem(String productID, String productImage, String productTitle, String productPrice, int productQuantity) {
         this.productID = productID;
         this.productImage = productImage;
         this.productTitle = productTitle;
@@ -29,19 +28,11 @@ public class CartItem {
         this.productQuantity = productQuantity;
     }
 
-    public CartItem(int type, String subTotal, String shipping, String total) {
-        this.type = type;
+    public CartItem(String subTotal, String shipping, String total) {
+
         this.subTotal = subTotal;
         this.shipping = shipping;
         this.total = total;
-    }
-
-    public int getType() {
-        return type;
-    }
-
-    public void setType(int type) {
-        this.type = type;
     }
 
     public String getProductID() {

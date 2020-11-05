@@ -1,8 +1,12 @@
 package com.wesal.mygift.Adapters;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -19,9 +23,11 @@ import java.util.ArrayList;
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartItemViewHolder> {
 
     private ArrayList<Product> mCartProducts;
+    private final Context mContext;
 
-    public CartAdapter() {
+    public CartAdapter(Context context) {
         mCartProducts = new ArrayList<>();
+        mContext = context;
     }
 
     public void update(ArrayList<Product> newItems) {
@@ -39,12 +45,51 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartItemViewHo
 
     @Override
     public void onBindViewHolder(@NonNull CartItemViewHolder holder, int position) {
-        Product p = mCartProducts.get(position);
+        final Product p = mCartProducts.get(position);
 
         Glide.with(holder.itemView.getContext()).load(p.getImgUrl()).into(holder.ivProductImg);
         holder.tvPName.setText(p.getName());
         holder.tvPprice.setText(p.getPrice());
         holder.enbCounter.setRange(1, p.getQuantity());
+        holder.ibCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                showAlertDialog(p);
+
+            }
+        });
+
+    }
+
+    private void showAlertDialog(final Product p) {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
+
+        builder.setTitle("Alert");
+        builder.setMessage("Are you sure you want to delete " + p.getName() + " From Cart!");
+
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+
+        builder.setPositiveButton("Yes, Delete It!", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                deleteProductFromCart(p);
+            }
+        });
+
+
+        builder.create().show();
+
+
+    }
+
+    private void deleteProductFromCart(Product p) {
 
     }
 
@@ -61,6 +106,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartItemViewHo
         TextView tvPprice;
         TextView tvProductQuantity;
         ElegantNumberButton enbCounter;
+        ImageButton ibCancel;
 
 
         public CartItemViewHolder(@NonNull View itemView) {
@@ -70,6 +116,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartItemViewHo
             tvPprice = itemView.findViewById(R.id.tvPprice);
             tvProductQuantity = itemView.findViewById(R.id.tvProductQuantity);
             enbCounter = itemView.findViewById(R.id.enbProductQuantity);
+            ibCancel = itemView.findViewById(R.id.ibCancel);
         }
 
     }

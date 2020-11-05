@@ -17,4 +17,5 @@ public class MyConstants {
     public static final String FB_KEY_PRODUCTS = "products";
     public static final String FB_KEY_SELLERS = "sellers";
     public static final String FB_KEY_CART = "cart";
+    public static final String FB_KEY_ORDERS = "orders";
 }
