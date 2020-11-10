@@ -1,11 +1,10 @@
-package com.wesal.mygift.Fragments;
+package com.wesal.mygift.SellerFragments;
 
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -48,14 +47,6 @@ public class SellerProfileFragment extends Fragment {
         tvSellerBussName = parentView.findViewById(R.id.tvSellerBussName);
         tvSellerBussType = parentView.findViewById(R.id.tvSellerBussType);
 
-        Button btnLogout = parentView.findViewById(R.id.btnLogout);
-        btnLogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FirebaseAuth.getInstance().signOut();
-                getActivity().finish();
-            }
-        });
 
         readSellerDataFromFirebase();
 

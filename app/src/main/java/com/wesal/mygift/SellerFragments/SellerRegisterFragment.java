@@ -1,4 +1,4 @@
-package com.wesal.mygift.Fragments;
+package com.wesal.mygift.SellerFragments;
 
 import android.content.Context;
 import android.content.Intent;

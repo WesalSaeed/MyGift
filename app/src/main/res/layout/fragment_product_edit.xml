@@ -67,10 +67,10 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout7">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tietProductAvailability"
+            android:id="@+id/tietProductCategory"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Availability"
+            android:hint="Category"
             android:inputType="textMultiLine" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -87,10 +87,10 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout8">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tietProductCategory"
+            android:id="@+id/tietProductDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Category"
+            android:hint="Description"
             android:inputType="textMultiLine" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -107,11 +107,11 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout9">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tietProductDescription"
+            android:id="@+id/tietProductQuantity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Description"
-            android:inputType="textMultiLine" />
+            android:hint="Quantity"
+            android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 
 

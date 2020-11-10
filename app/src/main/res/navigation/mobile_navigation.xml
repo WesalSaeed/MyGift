@@ -36,7 +36,7 @@
         tools:layout="@layout/fragment_customer_profile" />
     <fragment
         android:id="@+id/navigation_sellerAccount"
-        android:name="com.wesal.mygift.Fragments.SellerLoginFragment"
+        android:name="com.wesal.mygift.SellerFragments.SellerLoginFragment"
         android:label="Join App As Seller"
         tools:layout="@layout/fragment_seller_login" />
     <fragment

@@ -1,5 +1,6 @@
 package com.wesal.mygift.Fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,6 +32,12 @@ public class CartCheckoutFragment extends Fragment {
     ArrayList<Product> mCartProducts;
     CartAdapter mAdapter;
 
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+    }
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -38,7 +45,7 @@ public class CartCheckoutFragment extends Fragment {
         View parentView = inflater.inflate(R.layout.fragment_cart_checkout, container, false);
 
         mCartProducts = new ArrayList<>();
-        mAdapter = new CartAdapter();
+        mAdapter = new CartAdapter(getContext());
 
         final TextView tvSubTotal = parentView.findViewById(R.id.tvSubTotal);
         final TextView tvShip = parentView.findViewById(R.id.tvShip);

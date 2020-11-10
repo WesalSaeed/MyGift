@@ -4,6 +4,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/ivImg"
+        android:layout_width="124dp"
+        android:layout_height="124dp"
+        android:layout_marginTop="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_add_img"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout6"
         android:layout_width="0dp"
@@ -23,17 +35,7 @@
             android:hint="Product Name" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <ImageView
-        android:id="@+id/ivImg"
-        android:layout_width="124dp"
-        android:layout_height="124dp"
-        android:layout_marginTop="16dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:src="@drawable/ic_add_img"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout7"
@@ -67,10 +69,10 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout7">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tietProductAvailability"
+            android:id="@+id/tietProductCategory"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Availability"
+            android:hint="Category"
             android:inputType="textMultiLine" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -87,10 +89,10 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout8">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tietProductCategory"
+            android:id="@+id/tietProductDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Category"
+            android:hint="Description"
             android:inputType="textMultiLine" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -107,31 +109,11 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout9">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tietProductDescription"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Description"
-            android:inputType="textMultiLine" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout11"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="16dp"
-        android:maxHeight="100dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout10">
-
-        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tietProductQuantity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Quantity"
-            android:inputType="textMultiLine" />
+            android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -139,10 +121,10 @@
         android:id="@+id/btnSubmit"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="24dp"
         android:text="Submit"
-        app:layout_constraintEnd_toEndOf="@+id/textInputLayout11"
+        app:layout_constraintEnd_toEndOf="@+id/textInputLayout10"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textInputLayout11"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout11" />
+        app:layout_constraintStart_toStartOf="@+id/textInputLayout10"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout10" />
 </androidx.constraintlayout.widget.ConstraintLayout>

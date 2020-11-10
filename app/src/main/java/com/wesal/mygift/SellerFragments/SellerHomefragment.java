@@ -1,4 +1,4 @@
-package com.wesal.mygift.Fragments;
+package com.wesal.mygift.SellerFragments;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -46,6 +46,7 @@ public class SellerHomefragment extends Fragment implements View.OnClickListener
         addNewProduct.setOnClickListener(this);
         ListOfProduct.setOnClickListener(this);
         UpdateProfile.setOnClickListener(this);
+        orders.setOnClickListener(this);
 
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,7 +72,7 @@ public class SellerHomefragment extends Fragment implements View.OnClickListener
                 break;
 
             case R.id.orders:
-
+                mMediatorCallback.changeFragmentTo(new OrdersFragment(), OrdersFragment.class.getSimpleName());
                 break;
 
             case R.id.UpdateProfile:

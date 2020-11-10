@@ -1,4 +1,4 @@
-package com.wesal.mygift.Fragments;
+package com.wesal.mygift.SellerFragments;
 
 import android.content.Context;
 import android.content.Intent;
@@ -60,9 +60,9 @@ public class AddNewProductFragment extends Fragment {
 
         final TextInputEditText etProductName = parentView.findViewById(R.id.tietProductName);
         final TextInputEditText etProductPrice = parentView.findViewById(R.id.tietProductPrice);
-        final TextInputEditText etProductAvailability = parentView.findViewById(R.id.tietProductAvailability);
         final TextInputEditText etProductCategory = parentView.findViewById(R.id.tietProductCategory);
         final TextInputEditText etProductDesc = parentView.findViewById(R.id.tietProductDescription);
+        final TextInputEditText etProductQuantity = parentView.findViewById(R.id.tietProductQuantity);
 
         ivImg = parentView.findViewById(R.id.ivImg);
         ivImg.setOnClickListener(new View.OnClickListener() {
@@ -78,28 +78,29 @@ public class AddNewProductFragment extends Fragment {
             public void onClick(View view) {
                 String productName = etProductName.getText().toString();
                 String productPrice = etProductPrice.getText().toString();
-                String productAvailability = etProductAvailability.getText().toString();
                 String productCategory = etProductCategory.getText().toString();
                 String productDesc = etProductDesc.getText().toString();
+                int productQuantity = Integer.parseInt(etProductQuantity.getText().toString());
+
 
                 if (productName.isEmpty()) {
                     etProductName.setError("please write name");
                 } else if (productPrice.isEmpty()) {
                     etProductPrice.setError("please write price");
-                } else if (productAvailability.isEmpty()) {
-                    etProductAvailability.setError("please write availability");
                 } else if (productCategory.isEmpty()) {
                     etProductCategory.setError("please write category");
                 } else if (productDesc.isEmpty()) {
                     etProductDesc.setError("please write Description");
+                } else if (productQuantity == 0) {
+                    etProductQuantity.setError("please write quantity");
                 } else {
 
                     Product product = new Product();
                     product.setName(productName);
                     product.setPrice(productPrice);
-                 //   product.setAvailability(productAvailability);
                     product.setCategory(productCategory);
                     product.setDescription(productDesc);
+                    product.setQuantity(productQuantity);
 
                     uploadImgToFirebaseStorage(product);
                 }
@@ -136,7 +137,7 @@ public class AddNewProductFragment extends Fragment {
 
             final String imageName = UUID.randomUUID().toString();
 
-            // upload image to Firebase storage, image name will be rivers, it will be stored inside folder called images!
+            // upload image to Firebase storage, image name will be rivers, it will be stored inside folder called productImages!
             final StorageReference imgRef = mStorageRef.child("productImages/" + imageName + ".jpg");
 
             imgRef.putFile(mImgUri)
@@ -153,7 +154,7 @@ public class AddNewProductFragment extends Fragment {
                                     Log.d("Img-URL", storageImgUri.toString());
 
                                     product.setImgUrl(storageImgUri.toString());
-                                    product.setName(imageName + ".jpg");
+                                    product.setImgName(imageName + ".jpg");
                                     writeProductToFirebaseDB(product);
 
                                 }
@@ -189,6 +190,9 @@ public class AddNewProductFragment extends Fragment {
         product.setId(key);
 
         myRef.child(product.getId()).setValue(product);
+
+        Toast.makeText(getContext(), "product Successfully added", Toast.LENGTH_SHORT).show();
+
 
     }
 

@@ -23,7 +23,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.wesal.mygift.Adapters.ProductsAdapter;
+import com.wesal.mygift.Adapters.CategoryProductAdapter;
 import com.wesal.mygift.R;
 import com.wesal.mygift.interfaces.MediatorInterface;
 import com.wesal.mygift.model.Category;
@@ -34,7 +34,7 @@ import java.util.ArrayList;
 
 public class CategoryProductsListFragment extends Fragment {
 
-    ProductsAdapter mAdapter;
+    CategoryProductAdapter mAdapter;
     private MediatorInterface mMediatorCallback;
     ArrayList<Product> mProduct;
     private ProgressBar progressBar;
@@ -55,16 +55,16 @@ public class CategoryProductsListFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View parentView = inflater.inflate(R.layout.fragment_product_list, container, false);
+        View parentView = inflater.inflate(R.layout.fragment_categories_product_list, container, false);
 
         mProduct = new ArrayList<>();
-        mAdapter = new ProductsAdapter(getContext());
-        mAdapter.setOnProductClickListener(new ProductsAdapter.OnProductClickedListener() {
+        mAdapter = new CategoryProductAdapter(getContext());
+        mAdapter.setOnProductClickListener(new CategoryProductAdapter.OnProductClickedListener() {
             @Override
             public void onProductClicked(Product product) {
-                ProductDetailsFragment fragment = new ProductDetailsFragment();
+                CategoryProductDetailsFragment fragment = new CategoryProductDetailsFragment();
                 fragment.setProduct(product);
-                mMediatorCallback.changeFragmentTo(fragment, ProductDetailsFragment.class.getSimpleName());
+                mMediatorCallback.changeFragmentTo(fragment, CategoryProductDetailsFragment.class.getSimpleName());
 
             }
         });

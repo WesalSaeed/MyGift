@@ -27,7 +27,7 @@ public class BestSellerDetailsFragment extends Fragment {
             ImageView ivImgBest = parentView.findViewById(R.id.ivImage);
             TextView tvTitle = parentView.findViewById(R.id.tvProductTitle);
             TextView tvPRice = parentView.findViewById(R.id.tvProductprice);
-            TextView tvAvailability = parentView.findViewById(R.id.tvProductAvailability);
+            TextView tvAvailability = parentView.findViewById(R.id.tvProductQuantity);
             TextView tvCategories = parentView.findViewById(R.id.tvProductCategories);
             TextView tvDescription = parentView.findViewById(R.id.tvProductDescription);
 

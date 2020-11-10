@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,6 +22,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.wesal.mygift.Adapters.CartAdapter;
 import com.wesal.mygift.R;
+import com.wesal.mygift.interfaces.MediatorInterface;
 import com.wesal.mygift.model.MyConstants;
 import com.wesal.mygift.model.Product;
 
@@ -28,6 +30,7 @@ import java.util.ArrayList;
 
 public class CartFragment extends Fragment {
 
+    private MediatorInterface mMediatorCallback;
 
     CartAdapter mAdapter;
     ArrayList<Product> mCartProducts;
@@ -35,8 +38,8 @@ public class CartFragment extends Fragment {
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
+        mMediatorCallback = (MediatorInterface) context;
     }
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -49,6 +52,15 @@ public class CartFragment extends Fragment {
 
         RecyclerView cartItemsRecyclerView = parentView.findViewById(R.id.cartItemRecyclerView);
         setupRecyclerView(cartItemsRecyclerView);
+
+        Button btnCart_checkout = parentView.findViewById(R.id.btnCart_checkout);
+        btnCart_checkout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mMediatorCallback.changeFragmentTo(new CartCheckoutFragment(), CartCheckoutFragment.class.getSimpleName());
+
+            }
+        });
 
 
         readCartProductsFromFB();

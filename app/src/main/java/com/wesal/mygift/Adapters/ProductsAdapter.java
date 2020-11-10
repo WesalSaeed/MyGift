@@ -92,7 +92,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.MyView
         AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
 
         builder.setTitle("Alert");
-        builder.setMessage("Are you sure you to delete " + product.getName() + " From Database!");
+        builder.setMessage("Are you sure you to delete " + product.getImgName() + " From Database!");
 
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override

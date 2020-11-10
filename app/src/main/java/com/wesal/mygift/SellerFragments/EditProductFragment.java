@@ -1,4 +1,4 @@
-package com.wesal.mygift.Fragments;
+package com.wesal.mygift.SellerFragments;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -51,9 +51,9 @@ public class EditProductFragment extends Fragment {
 
         final TextInputEditText etProductName = parentView.findViewById(R.id.tietProductName);
         final TextInputEditText etProductPrice = parentView.findViewById(R.id.tietProductPrice);
-        final TextInputEditText etProductAvailability = parentView.findViewById(R.id.tietProductAvailability);
         final TextInputEditText etProductCategory = parentView.findViewById(R.id.tietProductCategory);
         final TextInputEditText etProductDesc = parentView.findViewById(R.id.tietProductDescription);
+        final TextInputEditText etProductQuantity = parentView.findViewById(R.id.tietProductQuantity);
         ivImg = parentView.findViewById(R.id.ivImg);
         Button btnEdit = parentView.findViewById(R.id.btnEdit);
 
@@ -63,6 +63,7 @@ public class EditProductFragment extends Fragment {
    //     etProductAvailability.setText(mProduct.getAailability());
         etProductCategory.setText(mProduct.getCategory());
         etProductDesc.setText(mProduct.getDescription());
+        etProductQuantity.setText(mProduct.getQuantity());
 
 
         ivImg.setOnClickListener(new View.OnClickListener() {
@@ -78,28 +79,28 @@ public class EditProductFragment extends Fragment {
             public void onClick(View view) {
                 String productName = etProductName.getText().toString();
                 String productPrice = etProductPrice.getText().toString();
-                String productAvailability = etProductAvailability.getText().toString();
                 String productCategory = etProductCategory.getText().toString();
                 String productDesc = etProductDesc.getText().toString();
+                int productQuantity = Integer.parseInt(etProductQuantity.getText().toString());
 
                 if (productName.isEmpty()) {
                     etProductName.setError("please write name");
                 } else if (productPrice.isEmpty()) {
                     etProductPrice.setError("please write price");
-                } else if (productAvailability.isEmpty()) {
-                    etProductAvailability.setError("please write availability");
                 } else if (productCategory.isEmpty()) {
                     etProductCategory.setError("please write category");
                 } else if (productDesc.isEmpty()) {
                     etProductDesc.setError("please write Description");
+                } else if (productQuantity == 0) {
+                    etProductDesc.setError("please write Quantity");
                 } else {
 
                     Product product = mProduct;
                     product.setName(productName);
                     product.setPrice(productPrice);
-                    //product.setAvailability(productAvailability);
                     product.setCategory(productCategory);
                     product.setDescription(productDesc);
+                    product.setQuantity(productQuantity);
 
                     if (mImgUri == null) {
                         writeProductToFirebaseDB(product);
@@ -167,7 +168,7 @@ public class EditProductFragment extends Fragment {
                                     Log.d("Img-URL", storageImgUri.toString());
 
                                     product.setImgUrl(storageImgUri.toString());
-                                    product.setName(imageName + ".jpg");
+                                    product.setImgName(imageName + ".jpg");
                                     writeProductToFirebaseDB(product);
 
                                 }
@@ -229,6 +230,7 @@ public class EditProductFragment extends Fragment {
                 .into(ivImg);// imageview
     }
 
-    public void setProduct(Product mProduct) {
+    public void setProduct(Product product) {
+        mProduct = product;
     }
 }

@@ -7,8 +7,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.wesal.mygift.Fragments.SellerHomefragment;
 import com.wesal.mygift.R;
+import com.wesal.mygift.SellerFragments.SellerHomefragment;
 import com.wesal.mygift.interfaces.MediatorInterface;
 
 public class SellerActivity extends AppCompatActivity implements MediatorInterface {
