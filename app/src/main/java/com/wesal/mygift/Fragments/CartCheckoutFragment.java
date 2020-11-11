@@ -31,6 +31,9 @@ public class CartCheckoutFragment extends Fragment {
 
     ArrayList<Product> mCartProducts;
     CartAdapter mAdapter;
+    int subTotal = 0;
+    int ship = 0;
+    int total = 0;
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -55,6 +58,8 @@ public class CartCheckoutFragment extends Fragment {
         btSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
                 Toast.makeText(getContext(), "Thank you for shopping, your order is successfully!.",
                         Toast.LENGTH_LONG).show();
             }
