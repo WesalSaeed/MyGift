@@ -8,21 +8,20 @@ public class CartItem {
 
 
     private String productID;
-    private String productImage;
+    private String productImageUrl;
     private String productTitle;
-
-
-    //cart item:
     private String productPrice;
     private int productQuantity;
+
+
     //cart total
     private String subTotal;
     private String shipping;
     private String total;
 
-    public CartItem(String productID, String productImage, String productTitle, String productPrice, int productQuantity) {
+    public CartItem(String productID, String productImageUrl, String productTitle, String productPrice, int productQuantity) {
         this.productID = productID;
-        this.productImage = productImage;
+        this.productImageUrl = productImageUrl;
         this.productTitle = productTitle;
         this.productPrice = productPrice;
         this.productQuantity = productQuantity;
@@ -43,12 +42,12 @@ public class CartItem {
         this.productID = productID;
     }
 
-    public String getProductImage() {
-        return productImage;
+    public String getproductImageUrl() {
+        return productImageUrl;
     }
 
-    public void setProductImage(String productImage) {
-        this.productImage = productImage;
+    public void setproductImageUrl(String productImageUrl) {
+        this.productImageUrl = productImageUrl;
     }
 
     public String getProductTitle() {

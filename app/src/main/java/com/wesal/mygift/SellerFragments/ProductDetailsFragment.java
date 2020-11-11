@@ -75,16 +75,7 @@ public class ProductDetailsFragment extends Fragment {
                 }
             });
 
-            ibEdit.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
 
-                    EditProductFragment fragment = new EditProductFragment();
-                    fragment.setProduct(mProduct);
-
-                    mMediatorCallback.changeFragmentTo(fragment, EditProductFragment.class.getSimpleName());
-                }
-            });
 
 
 
