@@ -110,7 +110,7 @@ public class HomeFragment extends Fragment {
 
         //item 1
         p = new NewProduct();
-        p.setNpImg(R.drawable.boyimg);
+        p.setNpImgUrl("https://firebasestorage.googleapis.com/v0/b/my-gift-c05ee.appspot.com/o/boyimg.jpg?alt=media&token=ba4a1102-4122-40da-a8c4-cf12ff8bf36f");
         p.setNpTitle("Baby Boy Gift");
         p.setNpPrice("13.000 OMR");
         p.setNpCategory("Baby Shower");
@@ -120,7 +120,7 @@ public class HomeFragment extends Fragment {
 
         //item 2
         p = new NewProduct();
-        p.setNpImg(R.drawable.birthimage6);
+        p.setNpImgUrl("https://firebasestorage.googleapis.com/v0/b/my-gift-c05ee.appspot.com/o/birthimage6.jpeg?alt=media&token=22aba39f-27e2-41fc-b65e-d2381135b73b");
         p.setNpTitle("Birthday Gift");
         p.setNpPrice("15.000 OMR");
         p.setNpCategory("Birthday");
@@ -130,7 +130,7 @@ public class HomeFragment extends Fragment {
 
         //item 3
         p = new NewProduct();
-        p.setNpImg(R.drawable.engimage3);
+        p.setNpImgUrl("https://firebasestorage.googleapis.com/v0/b/my-gift-c05ee.appspot.com/o/engimage3.jpeg?alt=media&token=694b18bd-70cb-4756-9f0c-986fd43077ff");
         p.setNpTitle("Engagement Gift");
         p.setNpPrice("16.000 OMR");
         p.setNpCategory("Engagement");
@@ -140,7 +140,7 @@ public class HomeFragment extends Fragment {
 
         //item 4
         p = new NewProduct();
-        p.setNpImg(R.drawable.gradimage4);
+        p.setNpImgUrl("https://firebasestorage.googleapis.com/v0/b/my-gift-c05ee.appspot.com/o/gradimage4.jpeg?alt=media&token=cfed1413-c578-4704-bdd8-4363c9292947");
         p.setNpTitle("Graduation Gift");
         p.setNpPrice("12.000 OMR");
         p.setNpCategory("Graduation ");
@@ -150,7 +150,7 @@ public class HomeFragment extends Fragment {
 
         //item 5
         p = new NewProduct();
-        p.setNpImg(R.drawable.wedimage2);
+        p.setNpImgUrl("https://firebasestorage.googleapis.com/v0/b/my-gift-c05ee.appspot.com/o/wedimage2.jpeg?alt=media&token=3ddb8a5f-c903-4721-93a1-35b1a905acad");
         p.setNpTitle("Wedding Gift");
         p.setNpPrice("15.000 OMR");
         p.setNpCategory("Wedding");
@@ -170,7 +170,7 @@ public class HomeFragment extends Fragment {
 
         //item 1
         b = new BestSeller();
-        b.setBsImg(R.drawable.boyimg);
+        b.setBsImgUrl("https://firebasestorage.googleapis.com/v0/b/my-gift-c05ee.appspot.com/o/boyimg.jpg?alt=media&token=ba4a1102-4122-40da-a8c4-cf12ff8bf36f");
         b.setBsTitle("Baby Boy Gift");
         b.setBsPrice("13.000 OMR");
         b.setBsCategory("Baby Shower");
@@ -180,7 +180,7 @@ public class HomeFragment extends Fragment {
 
         //item 2
         b = new BestSeller();
-        b.setBsImg(R.drawable.girlimg);
+        b.setBsImgUrl("https://firebasestorage.googleapis.com/v0/b/my-gift-c05ee.appspot.com/o/girlimg.jpg?alt=media&token=9caa31c8-e317-4aa3-ae29-f92cbcb19dda");
         b.setBsTitle("Baby Girl Gift");
         b.setBsPrice("30.000 OMR");
         b.setBsCategory("Baby Shower");
@@ -190,7 +190,7 @@ public class HomeFragment extends Fragment {
 
         //item 3
         b = new BestSeller();
-        b.setBsImg(R.drawable.natimage1);
+        b.setBsImgUrl("https://firebasestorage.googleapis.com/v0/b/my-gift-c05ee.appspot.com/o/natimage1.jpeg?alt=media&token=ee4713a1-7ff9-46db-b5c2-ea3b3e915c3c");
         b.setBsTitle("Women National Day Gift");
         b.setBsPrice("16.000 OMR");
         b.setBsCategory("National Occasions");
@@ -200,7 +200,7 @@ public class HomeFragment extends Fragment {
 
         //item 4
         b = new BestSeller();
-        b.setBsImg(R.drawable.natimage2);
+        b.setBsImgUrl("https://firebasestorage.googleapis.com/v0/b/my-gift-c05ee.appspot.com/o/natimage2.jpeg?alt=media&token=21188138-5189-4c28-b18a-be33cbd30ac2");
         b.setBsTitle("Women National Day Gift");
         b.setBsPrice("20.000 OMR");
         b.setBsCategory("National Occasions");
@@ -210,7 +210,7 @@ public class HomeFragment extends Fragment {
 
         //item 5
         b = new BestSeller();
-        b.setBsImg(R.drawable.gradimage1);
+        b.setBsImgUrl("https://firebasestorage.googleapis.com/v0/b/my-gift-c05ee.appspot.com/o/gradimage1.jpeg?alt=media&token=c7abe929-8a1a-4409-9793-74711fba1edb");
         b.setBsTitle("Graduation Gift");
         b.setBsPrice("15.000 OMR");
         b.setBsCategory("Graduation");
@@ -245,13 +245,13 @@ public class HomeFragment extends Fragment {
 
             switch (i) {
                 case 0:
-                    sliderView.setImageDrawable(R.drawable.slider1);
+                    sliderView.setImageUrl("https://firebasestorage.googleapis.com/v0/b/my-gift-c05ee.appspot.com/o/slider%2Fslider1.png?alt=media&token=fbcd0923-725c-4bae-8e02-286bf47671d2");
                     break;
                 case 1:
-                    sliderView.setImageDrawable(R.drawable.slider2);
+                    sliderView.setImageUrl("https://firebasestorage.googleapis.com/v0/b/my-gift-c05ee.appspot.com/o/slider%2Fslider2.png?alt=media&token=507551b5-45e5-41ea-9871-6c83ec4fe904");
                     break;
                 case 2:
-                    sliderView.setImageDrawable(R.drawable.slider3);
+                    sliderView.setImageUrl("https://firebasestorage.googleapis.com/v0/b/my-gift-c05ee.appspot.com/o/slider%2Fslider3.png?alt=media&token=7fb64f5a-9610-44b0-ab6c-8926d4d6015c");
                     break;
             }
             sliderView.setImageScaleType(ImageView.ScaleType.CENTER_CROP);

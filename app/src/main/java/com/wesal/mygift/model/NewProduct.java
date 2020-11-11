@@ -3,19 +3,19 @@ package com.wesal.mygift.model;
 import java.io.Serializable;
 
 public class NewProduct implements Serializable {
-    private int npImg;
+    private String npImgUrl;
     private String npTitle;
     private String npPrice;
     private String npCategory;
     private String npAvailability;
     private String npDescription;
 
-    public int getNpImg() {
-        return npImg;
+    public String getNpImgUrl() {
+        return npImgUrl;
     }
 
-    public void setNpImg(int npImg) {
-        this.npImg = npImg;
+    public void setNpImgUrl(String npImgUrl) {
+        this.npImgUrl = npImgUrl;
     }
 
     public String getNpTitle() {

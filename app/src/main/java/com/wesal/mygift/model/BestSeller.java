@@ -3,19 +3,20 @@ package com.wesal.mygift.model;
 import java.io.Serializable;
 
 public class BestSeller implements Serializable {
-    private int bsImg;
+    private String bsImgUrl;
     private String bsTitle;
     private String bsPrice;
     private String bsCategory;
     private String bsAvailability;
     private String bsDescription;
 
-    public int getBsImg() {
-        return bsImg;
+
+    public String getBsImgUrl() {
+        return bsImgUrl;
     }
 
-    public void setBsImg(int bsImg) {
-        this.bsImg = bsImg;
+    public void setBsImgUrl(String bsImgUrl) {
+        this.bsImgUrl = bsImgUrl;
     }
 
     public String getBsTitle() {
