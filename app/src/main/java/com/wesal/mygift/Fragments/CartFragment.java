@@ -2,7 +2,6 @@ package com.wesal.mygift.Fragments;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,6 +36,10 @@ public class CartFragment extends Fragment {
     ArrayList<Product> mCartProducts;
     private TextView tvTotalAmount;
 
+
+    FirebaseAuth mAuth;
+    FirebaseUser firebaseUser;
+
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
@@ -49,6 +52,8 @@ public class CartFragment extends Fragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View parentView = inflater.inflate(R.layout.fragment_cart, container, false);
 
+        mAuth = FirebaseAuth.getInstance();
+        firebaseUser = mAuth.getCurrentUser();
 
         mCartProducts = new ArrayList<>();
         mAdapter = new CartAdapter(getContext());
@@ -63,6 +68,8 @@ public class CartFragment extends Fragment {
             public void onClick(View view) {
                 //  mMediatorCallback.changeFragmentTo(new CartCheckoutFragment(), CartCheckoutFragment.class.getSimpleName());
 
+                createOrderChildInCustomer();
+
             }
         });
 
@@ -73,8 +80,6 @@ public class CartFragment extends Fragment {
     }
 
     private void readCartProductsFromFB() {
-        FirebaseAuth mAuth = FirebaseAuth.getInstance();
-        FirebaseUser firebaseUser = mAuth.getCurrentUser();
 
 // Write a message to the database
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -115,6 +120,44 @@ public class CartFragment extends Fragment {
         }
         tvTotalAmount.setText("OMR " + sum);
     }
+
+
+    private void createOrderChildInCustomer() {
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference(MyConstants.FB_KEY_CUSTOMERS).child(firebaseUser.getUid()).child(MyConstants.FB_KEY_ORDERS);
+
+        for(Product p : mCartProducts){
+            String key =myRef.push().getKey();
+            myRef.child(key).setValue(p);
+
+        }
+
+        deleteCartFromFirebase();
+
+    }
+
+   /* private void createOrderChildInSeller() {
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+
+
+        for(Product p : mCartProducts){
+
+            DatabaseReference myRef = database.getReference(MyConstants.FB_KEY_SELLERS)
+                    .child(p.getSellerId()).child(MyConstants.FB_KEY_ORDERS);
+
+            String key =myRef.push().getKey();
+            myRef.child(key).setValue(p);
+
+
+    }}*/
+
+    private void deleteCartFromFirebase() {
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference(MyConstants.FB_KEY_CUSTOMERS).child(firebaseUser.getUid()).child(MyConstants.FB_KEY_CART);
+        myRef.removeValue();
+    }
+
 
     private void setupRecyclerView(RecyclerView cartItemsRecyclerView) {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());

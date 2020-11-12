@@ -13,19 +13,20 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.wesal.mygift.R;
 import com.wesal.mygift.model.CartItem;
+import com.wesal.mygift.model.Product;
 
 import java.util.ArrayList;
 
 public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.MyViewHolder> {
 
     private final Context mContext;
-    private ArrayList<CartItem> mCart;
+    private ArrayList<Product> mCart;
 
     public OrdersAdapter(Context mContext) {
         this.mContext = mContext;
     }
 
-    public void update(ArrayList<CartItem> newItems) {
+    public void update(ArrayList<Product> newItems) {
         mCart = newItems;
         notifyDataSetChanged();
     }
@@ -40,11 +41,11 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.MyViewHold
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
-        final CartItem c = mCart.get(position);
-        Glide.with(holder.itemView.getContext()).load(c.getproductImageUrl()).into(holder.ivProductImg);
-        holder.tvPName.setText(c.getProductTitle());
-        holder.tvPprice.setText(c.getProductPrice());
-        holder.tvPQuantity.setText(c.getProductQuantity());
+        final Product c = mCart.get(position);
+        Glide.with(holder.itemView.getContext()).load(c.getImgUrl()).into(holder.ivProductImg);
+        holder.tvPName.setText(c.getName());
+        holder.tvPprice.setText(c.getPrice());
+        holder.tvPQuantity.setText(c.getUserSelectedQuantity()+"");
         //holder.tvCustomerPhone.setText(c.);
 
 

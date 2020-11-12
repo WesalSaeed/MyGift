@@ -24,13 +24,14 @@ import com.wesal.mygift.R;
 import com.wesal.mygift.interfaces.MediatorInterface;
 import com.wesal.mygift.model.CartItem;
 import com.wesal.mygift.model.MyConstants;
+import com.wesal.mygift.model.Product;
 
 import java.util.ArrayList;
 
 public class OrdersFragment extends Fragment {
 
     OrdersAdapter mAdapter;
-    ArrayList<CartItem> mCart;
+    ArrayList<Product> mCart;
     private MediatorInterface mMediatorCallback;
 
     @Override
@@ -55,17 +56,9 @@ public class OrdersFragment extends Fragment {
 
         writeOrdersToFB();
 
-        deleteCartFromFirebase();
 
 
         return parentView;
-    }
-
-    private void deleteCartFromFirebase() {
-
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference(MyConstants.FB_KEY_CART);
-        myRef.removeValue();
     }
 
 
@@ -83,7 +76,7 @@ public class OrdersFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 mCart.clear();
                 for (DataSnapshot d : snapshot.getChildren()) {
-                    CartItem value = d.getValue(CartItem.class);
+                    Product value = d.getValue(Product.class);
                     mCart.add(value);
                 }
 
