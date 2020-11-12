@@ -9,6 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.wesal.mygift.R;
 import com.wesal.mygift.model.NewProduct;
 
@@ -45,7 +46,8 @@ public class NewProductAdapter extends RecyclerView.Adapter<NewProductAdapter.My
 
         final NewProduct newProduct = mNewProduct.get(position);
 
-        holder.ivNpProduct.setImageResource(newProduct.getNpImg());
+        Glide.with(holder.itemView.getContext()).load(newProduct.getNpImgUrl()).into(holder.ivNpProduct);
+
         holder.tvNpName.setText(newProduct.getNpTitle());
         holder.tvNpCategory.setText(newProduct.getNpCategory());
         holder.tvNpPrice.setText(newProduct.getNpPrice());

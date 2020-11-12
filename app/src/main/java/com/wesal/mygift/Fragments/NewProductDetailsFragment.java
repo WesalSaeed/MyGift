@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.bumptech.glide.Glide;
 import com.wesal.mygift.R;
 import com.wesal.mygift.model.NewProduct;
 
@@ -32,8 +33,10 @@ public class NewProductDetailsFragment extends Fragment {
             TextView tvNpCategories = parentView.findViewById(R.id.tvNpCategories);
             TextView tvNpDescription = parentView.findViewById(R.id.tvNpDescription);
 
+            Glide.with(getContext()).load(mNewProduct.getNpImgUrl()).into(ivImgNew);
 
-            ivImgNew.setImageResource(mNewProduct.getNpImg());
+
+            //ivImgNew.setImageResource(mNewProduct.getNpImg());
             tvNpTitle.setText("Title : " + mNewProduct.getNpTitle());
             tvNpPRice.setText("Price : " + mNewProduct.getNpPrice());
             tvNpAvailability.setText(("Availability : " + mNewProduct.getNpAvailability()));

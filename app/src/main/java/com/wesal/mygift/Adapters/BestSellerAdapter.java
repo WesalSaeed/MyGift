@@ -9,6 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.wesal.mygift.R;
 import com.wesal.mygift.model.BestSeller;
 
@@ -45,8 +46,7 @@ public class BestSellerAdapter extends RecyclerView.Adapter<BestSellerAdapter.My
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
         final BestSeller bestSeller = mBestSeller.get(position);
-
-        holder.ivProduct.setImageResource(bestSeller.getBsImg());
+        Glide.with(holder.itemView.getContext()).load(bestSeller.getBsImgUrl()).into(holder.ivProduct);
         holder.tvName.setText(bestSeller.getBsTitle());
         holder.tvCategory.setText(bestSeller.getBsCategory());
         holder.tvPrice.setText(bestSeller.getBsPrice());

@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.bumptech.glide.Glide;
 import com.wesal.mygift.R;
 import com.wesal.mygift.model.BestSeller;
 
@@ -31,7 +32,9 @@ public class BestSellerDetailsFragment extends Fragment {
             TextView tvCategories = parentView.findViewById(R.id.tvProductCategories);
             TextView tvDescription = parentView.findViewById(R.id.tvProductDescription);
 
-            ivImgBest.setImageResource(mBestSeller.getBsImg());
+
+            Glide.with(getContext()).load(mBestSeller.getBsImgUrl()).into(ivImgBest);
+            // ivImgBest.setImageResource(mBestSeller.getBsImg());
             tvTitle.setText("Title : " + mBestSeller.getBsTitle());
             tvPRice.setText("Price :  " + mBestSeller.getBsPrice());
             tvAvailability.setText(("Availability :" + mBestSeller.getBsAvailability()));
