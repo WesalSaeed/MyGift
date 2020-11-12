@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -12,11 +13,18 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.wesal.mygift.R;
 import com.wesal.mygift.model.BestSeller;
+import com.wesal.mygift.model.MyConstants;
+import com.wesal.mygift.model.Product;
 
 public class BestSellerDetailsFragment extends Fragment {
     private BestSeller mBestSeller;
+    private Product mProduct;
 
     @Nullable
     @Override
@@ -42,9 +50,30 @@ public class BestSellerDetailsFragment extends Fragment {
             tvDescription.setText("Description :" + mBestSeller.getBsDescription());
 
 
+            Button btnAddToCart = parentView.findViewById(R.id.btnAddToCart);
+            btnAddToCart.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    addProductToUserCart();
+                }
+            });
+
         }
 
+
         return parentView;
+    }
+
+    private void addProductToUserCart() {
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        FirebaseUser firebaseUser = mAuth.getCurrentUser();
+
+// Write a message to the database
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference(MyConstants.FB_KEY_CUSTOMERS).child(firebaseUser.getUid());
+
+        mProduct.setUserSelectedQuantity(1);
+        myRef.child(MyConstants.FB_KEY_CART).child(mProduct.getId()).setValue(mProduct);
     }
 
 

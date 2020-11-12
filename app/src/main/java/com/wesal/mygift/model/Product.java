@@ -10,6 +10,7 @@ public class Product {
     private String imgName;
     private int quantity;
     private int userSelectedQuantity;
+    private String SellerId;
 
 
     public String getImgName() {
@@ -83,5 +84,13 @@ public class Product {
 
     public void setUserSelectedQuantity(int userSelectedQuantity) {
         this.userSelectedQuantity = userSelectedQuantity;
+    }
+
+    public String getSellerId() {
+        return SellerId;
+    }
+
+    public void setSellerId(String sellerId) {
+        SellerId = sellerId;
     }
 }

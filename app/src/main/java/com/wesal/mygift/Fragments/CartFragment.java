@@ -1,6 +1,7 @@
 package com.wesal.mygift.Fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +22,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.wesal.mygift.Activities.SecondActivity;
 import com.wesal.mygift.Adapters.CartAdapter;
 import com.wesal.mygift.R;
 import com.wesal.mygift.model.MyConstants;
@@ -69,6 +71,10 @@ public class CartFragment extends Fragment {
                 //  mMediatorCallback.changeFragmentTo(new CartCheckoutFragment(), CartCheckoutFragment.class.getSimpleName());
 
                 createOrderChildInCustomer();
+
+
+                Intent i = new Intent(getActivity(), SecondActivity.class);
+                i.putExtra(MyConstants.FRAGMENT_TO_DISPLAY, MyConstants.FRAGMENT_CART_CHECKOUT);
 
             }
         });
@@ -136,20 +142,21 @@ public class CartFragment extends Fragment {
 
     }
 
-   /* private void createOrderChildInSeller() {
+    private void createOrderChildInSeller() {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
 
 
-        for(Product p : mCartProducts){
+        for (Product p : mCartProducts) {
 
             DatabaseReference myRef = database.getReference(MyConstants.FB_KEY_SELLERS)
                     .child(p.getSellerId()).child(MyConstants.FB_KEY_ORDERS);
 
-            String key =myRef.push().getKey();
+            String key = myRef.push().getKey();
             myRef.child(key).setValue(p);
 
 
-    }}*/
+        }
+    }
 
     private void deleteCartFromFirebase() {
 

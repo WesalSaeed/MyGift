@@ -31,9 +31,6 @@ public class CartCheckoutFragment extends Fragment {
 
     ArrayList<Product> mCartProducts;
     CartAdapter mAdapter;
-    int subTotal = 0;
-    int ship = 0;
-    int total = 0;
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -53,6 +50,19 @@ public class CartCheckoutFragment extends Fragment {
         final TextView tvSubTotal = parentView.findViewById(R.id.tvSubTotal);
         final TextView tvShip = parentView.findViewById(R.id.tvShip);
         final TextView tvTotal = parentView.findViewById(R.id.tvTotal);
+
+        double subTotal = 0.0;
+        double ship = 2.000;
+        double total = 0.0;
+        for (Product p : mCartProducts) {
+            double price = Double.parseDouble(p.getPrice());
+            subTotal += p.getUserSelectedQuantity() * price;
+        }
+        total = subTotal + ship;
+        tvSubTotal.setText("OMR " + subTotal);
+        tvShip.setText("OMR " + ship);
+        tvTotal.setText("OMR " + total);
+
 
         Button btSubmit = parentView.findViewById(R.id.btSubmit);
         btSubmit.setOnClickListener(new View.OnClickListener() {

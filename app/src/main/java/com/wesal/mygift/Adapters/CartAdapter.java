@@ -41,6 +41,11 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartItemViewHo
         notifyDataSetChanged();
     }
 
+    public void removeItem(int position) {
+        mCartProducts.remove(position);
+        notifyItemRemoved(position);
+    }
+
 
     @NonNull
     @Override
