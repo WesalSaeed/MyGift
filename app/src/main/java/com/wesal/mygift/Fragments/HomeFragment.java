@@ -111,51 +111,46 @@ public class HomeFragment extends Fragment {
         //item 1
         p = new NewProduct();
         p.setNpImgUrl("https://firebasestorage.googleapis.com/v0/b/my-gift-c05ee.appspot.com/o/boyimg.jpg?alt=media&token=ba4a1102-4122-40da-a8c4-cf12ff8bf36f");
-        p.setNpTitle("Baby Boy Gift");
+        p.setNpTitle("Baby Boy gift");
         p.setNpPrice("13.000 OMR");
         p.setNpCategory("Baby Shower");
-        p.setNpAvailability("In stock");
-        p.setNpDescription("Baby Boy set : Baby pillow, Baby shoes, Baby onuses, Baby milk bottle");
+        p.setNpDescription("Baby boy set");
         npItem.add(p);
 
         //item 2
         p = new NewProduct();
         p.setNpImgUrl("https://firebasestorage.googleapis.com/v0/b/my-gift-c05ee.appspot.com/o/birthimage6.jpeg?alt=media&token=22aba39f-27e2-41fc-b65e-d2381135b73b");
-        p.setNpTitle("Birthday Gift");
+        p.setNpTitle("Birthday gift");
         p.setNpPrice("15.000 OMR");
         p.setNpCategory("Birthday");
-        p.setNpAvailability("In stock");
         p.setNpDescription("Cake");
         npItem.add(p);
 
         //item 3
         p = new NewProduct();
         p.setNpImgUrl("https://firebasestorage.googleapis.com/v0/b/my-gift-c05ee.appspot.com/o/engimage3.jpeg?alt=media&token=694b18bd-70cb-4756-9f0c-986fd43077ff");
-        p.setNpTitle("Engagement Gift");
+        p.setNpTitle("Engagement gift");
         p.setNpPrice("16.000 OMR");
         p.setNpCategory("Engagement");
-        p.setNpAvailability("In stock");
-        p.setNpDescription("women watch, accessories set, flower");
+        p.setNpDescription("Women watch, flower, accessories set");
         npItem.add(p);
 
         //item 4
         p = new NewProduct();
         p.setNpImgUrl("https://firebasestorage.googleapis.com/v0/b/my-gift-c05ee.appspot.com/o/gradimage4.jpeg?alt=media&token=cfed1413-c578-4704-bdd8-4363c9292947");
-        p.setNpTitle("Graduation Gift");
+        p.setNpTitle("Graduation gift");
         p.setNpPrice("12.000 OMR");
-        p.setNpCategory("Graduation ");
-        p.setNpAvailability("In stock");
-        p.setNpDescription("perfume, watch, flower");
+        p.setNpCategory("Graduation");
+        p.setNpDescription("Perfumes, flower, watch");
         npItem.add(p);
 
         //item 5
         p = new NewProduct();
         p.setNpImgUrl("https://firebasestorage.googleapis.com/v0/b/my-gift-c05ee.appspot.com/o/wedimage2.jpeg?alt=media&token=3ddb8a5f-c903-4721-93a1-35b1a905acad");
-        p.setNpTitle("Wedding Gift");
+        p.setNpTitle("Wedding gift");
         p.setNpPrice("15.000 OMR");
         p.setNpCategory("Wedding");
-        p.setNpAvailability("In stock");
-        p.setNpDescription("women shoes, flower");
+        p.setNpDescription("Women Shoes, flower");
         npItem.add(p);
 
 
@@ -171,21 +166,19 @@ public class HomeFragment extends Fragment {
         //item 1
         b = new BestSeller();
         b.setBsImgUrl("https://firebasestorage.googleapis.com/v0/b/my-gift-c05ee.appspot.com/o/boyimg.jpg?alt=media&token=ba4a1102-4122-40da-a8c4-cf12ff8bf36f");
-        b.setBsTitle("Baby Boy Gift");
+        b.setBsTitle("Baby boy gift");
         b.setBsPrice("13.000 OMR");
         b.setBsCategory("Baby Shower");
-        b.setBsAvailability("In stock");
-        b.setBsDescription("Baby Boy set : Baby pillow, Baby shoes, Baby onuses, Baby milk bottle");
+        b.setBsDescription("Baby boy set");
         bsItem.add(b);
 
         //item 2
         b = new BestSeller();
         b.setBsImgUrl("https://firebasestorage.googleapis.com/v0/b/my-gift-c05ee.appspot.com/o/girlimg.jpg?alt=media&token=9caa31c8-e317-4aa3-ae29-f92cbcb19dda");
-        b.setBsTitle("Baby Girl Gift");
+        b.setBsTitle("Baby Shower gift");
         b.setBsPrice("30.000 OMR");
         b.setBsCategory("Baby Shower");
-        b.setBsAvailability("In stock");
-        b.setBsDescription("Baby Girl set : Baby dress, Baby shoes, Baby head band, Baby hair brush, Baby milk bottle");
+        b.setBsDescription("Baby girl set");
         bsItem.add(b);
 
         //item 3
@@ -194,27 +187,24 @@ public class HomeFragment extends Fragment {
         b.setBsTitle("Women National Day Gift");
         b.setBsPrice("16.000 OMR");
         b.setBsCategory("National Occasions");
-        b.setBsAvailability("In stock");
-        b.setBsDescription("set of perfumes, flowers ");
+        b.setBsDescription("Perfumes, flower ");
         bsItem.add(b);
 
         //item 4
         b = new BestSeller();
         b.setBsImgUrl("https://firebasestorage.googleapis.com/v0/b/my-gift-c05ee.appspot.com/o/natimage2.jpeg?alt=media&token=21188138-5189-4c28-b18a-be33cbd30ac2");
-        b.setBsTitle("Women National Day Gift");
+        b.setBsTitle("Women National Day gift");
         b.setBsPrice("20.000 OMR");
         b.setBsCategory("National Occasions");
-        b.setBsAvailability("In stock");
-        b.setBsDescription("Women watch, flowers ");
+        b.setBsDescription("Women watch, flower");
         bsItem.add(b);
 
         //item 5
         b = new BestSeller();
         b.setBsImgUrl("https://firebasestorage.googleapis.com/v0/b/my-gift-c05ee.appspot.com/o/gradimage1.jpeg?alt=media&token=c7abe929-8a1a-4409-9793-74711fba1edb");
-        b.setBsTitle("Graduation Gift");
+        b.setBsTitle("Graduation gift");
         b.setBsPrice("15.000 OMR");
         b.setBsCategory("Graduation");
-        b.setBsAvailability("In stock");
         b.setBsDescription("Cake");
         bsItem.add(b);
 

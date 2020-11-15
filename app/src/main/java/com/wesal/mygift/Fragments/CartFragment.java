@@ -75,6 +75,7 @@ public class CartFragment extends Fragment {
 
                 Intent i = new Intent(getActivity(), SecondActivity.class);
                 i.putExtra(MyConstants.FRAGMENT_TO_DISPLAY, MyConstants.FRAGMENT_CART_CHECKOUT);
+                startActivity(i);
 
             }
         });

@@ -13,6 +13,8 @@ public class MyConstants {
     public static final String FRAGMENT_SELLER_REGISTER = "fragment_seller_register";
     public static final String FRAGMENT_DATANP = "DATA";
     public static final String FRAGMENT_CART_CHECKOUT = "fragment_cart_checkout";
+    public static final String FRAGMENT_PRODUCT_EDIT = "fragment_product_edit";
+
 
     public static final String FB_KEY_CUSTOMERS = "customers";
     public static final String FB_KEY_PRODUCTS = "products";

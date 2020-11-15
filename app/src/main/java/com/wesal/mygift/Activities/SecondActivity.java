@@ -8,16 +8,19 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.wesal.mygift.Fragments.BestSellerDetailsFragment;
+import com.wesal.mygift.Fragments.CartCheckoutFragment;
 import com.wesal.mygift.Fragments.CategoryProductsListFragment;
 import com.wesal.mygift.Fragments.LoginFragment;
 import com.wesal.mygift.Fragments.NewProductDetailsFragment;
 import com.wesal.mygift.R;
+import com.wesal.mygift.SellerFragments.EditProductFragment;
 import com.wesal.mygift.SellerFragments.SellerRegisterFragment;
 import com.wesal.mygift.interfaces.MediatorInterface;
 import com.wesal.mygift.model.BestSeller;
 import com.wesal.mygift.model.Category;
 import com.wesal.mygift.model.MyConstants;
 import com.wesal.mygift.model.NewProduct;
+import com.wesal.mygift.model.Product;
 
 public class SecondActivity extends AppCompatActivity implements MediatorInterface {
 
@@ -65,7 +68,16 @@ public class SecondActivity extends AppCompatActivity implements MediatorInterfa
                     changeFragmentTo(cpl, CategoryProductsListFragment.class.getSimpleName());
                     break;
 
+                case MyConstants.FRAGMENT_PRODUCT_EDIT:
+                    EditProductFragment fragmentEdit = new EditProductFragment();
+                    Product mProduct = (Product) getIntent().getSerializableExtra(MyConstants.FRAGMENT_DATA);
+                    fragmentEdit.setProduct(mProduct);
+                    changeFragmentTo(new EditProductFragment(), EditProductFragment.class.getSimpleName());
+                    break;
 
+                case MyConstants.FRAGMENT_CART_CHECKOUT:
+                    changeFragmentTo(new CartCheckoutFragment(), CartCheckoutFragment.class.getSimpleName());
+                    break;
 
             }
         }

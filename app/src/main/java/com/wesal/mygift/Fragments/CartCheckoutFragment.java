@@ -31,6 +31,9 @@ public class CartCheckoutFragment extends Fragment {
 
     ArrayList<Product> mCartProducts;
     CartAdapter mAdapter;
+    private TextView tvSubTotal;
+    private TextView tvShip;
+    private TextView tvTotal;
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -47,21 +50,9 @@ public class CartCheckoutFragment extends Fragment {
         mCartProducts = new ArrayList<>();
         mAdapter = new CartAdapter(getContext());
 
-        final TextView tvSubTotal = parentView.findViewById(R.id.tvSubTotal);
-        final TextView tvShip = parentView.findViewById(R.id.tvShip);
-        final TextView tvTotal = parentView.findViewById(R.id.tvTotal);
-
-        double subTotal = 0.0;
-        double ship = 2.000;
-        double total = 0.0;
-        for (Product p : mCartProducts) {
-            double price = Double.parseDouble(p.getPrice());
-            subTotal += p.getUserSelectedQuantity() * price;
-        }
-        total = subTotal + ship;
-        tvSubTotal.setText("OMR " + subTotal);
-        tvShip.setText("OMR " + ship);
-        tvTotal.setText("OMR " + total);
+        tvSubTotal = parentView.findViewById(R.id.tvSubTotal);
+        tvShip = parentView.findViewById(R.id.tvShip);
+        tvTotal = parentView.findViewById(R.id.tvTotal);
 
 
         Button btSubmit = parentView.findViewById(R.id.btSubmit);
@@ -103,6 +94,8 @@ public class CartCheckoutFragment extends Fragment {
 
                 mAdapter.update(mCartProducts);
 
+                printSubTotal();
+
 
             }
 
@@ -114,4 +107,20 @@ public class CartCheckoutFragment extends Fragment {
 
 
     }
+
+    private void printSubTotal() {
+
+        double subTotal = 0.0;
+        double ship = 2.000;
+        double total = subTotal + ship;
+        for (Product p : mCartProducts) {
+            double price = Double.parseDouble(p.getPrice());
+            subTotal += p.getUserSelectedQuantity() * price;
+        }
+
+        tvSubTotal.setText("OMR " + subTotal);
+        tvShip.setText("OMR " + ship);
+        tvTotal.setText("OMR " + total);
+    }
+
 }

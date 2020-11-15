@@ -7,7 +7,6 @@ public class BestSeller implements Serializable {
     private String bsTitle;
     private String bsPrice;
     private String bsCategory;
-    private String bsAvailability;
     private String bsDescription;
 
 
@@ -43,13 +42,6 @@ public class BestSeller implements Serializable {
         this.bsCategory = bsCategory;
     }
 
-    public String getBsAvailability() {
-        return bsAvailability;
-    }
-
-    public void setBsAvailability(String bsAvailability) {
-        this.bsAvailability = bsAvailability;
-    }
 
     public String getBsDescription() {
         return bsDescription;

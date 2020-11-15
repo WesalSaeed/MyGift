@@ -16,8 +16,10 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
+import com.wesal.mygift.Activities.SecondActivity;
 import com.wesal.mygift.R;
 import com.wesal.mygift.interfaces.MediatorInterface;
+import com.wesal.mygift.model.MyConstants;
 import com.wesal.mygift.model.Product;
 
 public class ProductDetailsFragment extends Fragment {
@@ -51,9 +53,15 @@ public class ProductDetailsFragment extends Fragment {
         ibEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                EditProductFragment fragment = new EditProductFragment();
+               /* EditProductFragment fragment = new EditProductFragment();
                 fragment.setProduct(mProduct);
-                mMediatorCallback.changeFragmentTo(fragment, EditProductFragment.class.getSimpleName());
+                mMediatorCallback.changeFragmentTo(fragment, EditProductFragment.class.getSimpleName());*/
+
+                Intent i = new Intent(getActivity(), SecondActivity.class);
+                i.putExtra(MyConstants.FRAGMENT_TO_DISPLAY, MyConstants.FRAGMENT_PRODUCT_EDIT);
+                startActivity(i);
+
+
             }
         });
 

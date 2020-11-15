@@ -38,7 +38,6 @@ public class NewProductDetailsFragment extends Fragment {
             ImageView ivImgNew = parentView.findViewById(R.id.ivNpImage);
             TextView tvNpTitle = parentView.findViewById(R.id.tvNpTitle);
             TextView tvNpPRice = parentView.findViewById(R.id.tvNpPrice);
-            TextView tvNpAvailability = parentView.findViewById(R.id.tvNpAvailability);
             TextView tvNpCategories = parentView.findViewById(R.id.tvNpCategories);
             TextView tvNpDescription = parentView.findViewById(R.id.tvNpDescription);
 
@@ -48,7 +47,6 @@ public class NewProductDetailsFragment extends Fragment {
             //ivImgNew.setImageResource(mNewProduct.getNpImg());
             tvNpTitle.setText("Title : " + mNewProduct.getNpTitle());
             tvNpPRice.setText("Price : " + mNewProduct.getNpPrice());
-            tvNpAvailability.setText(("Availability : " + mNewProduct.getNpAvailability()));
             tvNpCategories.setText("Category : " + mNewProduct.getNpCategory());
             tvNpDescription.setText("Description : " + mNewProduct.getNpDescription());
 

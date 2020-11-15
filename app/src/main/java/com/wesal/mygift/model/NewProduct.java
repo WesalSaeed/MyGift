@@ -7,7 +7,6 @@ public class NewProduct implements Serializable {
     private String npTitle;
     private String npPrice;
     private String npCategory;
-    private String npAvailability;
     private String npDescription;
 
     public String getNpImgUrl() {
@@ -42,13 +41,6 @@ public class NewProduct implements Serializable {
         this.npCategory = npCategory;
     }
 
-    public String getNpAvailability() {
-        return npAvailability;
-    }
-
-    public void setNpAvailability(String npAvailability) {
-        this.npAvailability = npAvailability;
-    }
 
     public String getNpDescription() {
         return npDescription;

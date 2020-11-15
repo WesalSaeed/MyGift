@@ -19,11 +19,7 @@
         android:name="com.wesal.mygift.Fragments.HomeFragment"
         android:label="Home"
         tools:layout="@layout/fragment_home" />
-    <fragment
-        android:id="@+id/navigation_shops"
-        android:name="com.wesal.mygift.Fragments.ShopsFragment"
-        android:label="Shops"
-        tools:layout="@layout/fragment_shops" />
+
     <fragment
         android:id="@+id/navigation_categories"
         android:name="com.wesal.mygift.Fragments.CategoriesFragment"
