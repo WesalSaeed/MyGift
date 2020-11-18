@@ -10,7 +10,7 @@
         android:label="HomeFragment" />
     <fragment
         android:id="@+id/shopsFragment"
-        android:name="com.wesal.mygift.Fragments.ShopsFragment"
+        android:name="com.wesal.mygift.Fragments.ShopsListFragment"
         android:label="ShopsFragment" />
     <fragment
         android:id="@+id/categoriesFragment"

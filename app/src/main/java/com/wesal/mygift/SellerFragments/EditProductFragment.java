@@ -57,10 +57,11 @@ public class EditProductFragment extends Fragment {
         ivImg = parentView.findViewById(R.id.ivImg);
         Button btnEdit = parentView.findViewById(R.id.btnEdit);
 
+
+        //old info
         Glide.with(getContext()).load(mProduct.getImgUrl()).into(ivImg);
         etProductName.setText(mProduct.getName());
         etProductPrice.setText(mProduct.getPrice());
-   //     etProductAvailability.setText(mProduct.getAailability());
         etProductCategory.setText(mProduct.getCategory());
         etProductDesc.setText(mProduct.getDescription());
         etProductQuantity.setText(mProduct.getQuantity());

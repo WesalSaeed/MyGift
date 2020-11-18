@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.wesal.mygift.R;
-import com.wesal.mygift.model.CartItem;
 import com.wesal.mygift.model.Product;
 
 import java.util.ArrayList;
@@ -34,7 +33,7 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.MyViewHold
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View orderItemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.order_list_item, parent, false);
+        View orderItemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_order, parent, false);
         return new OrdersAdapter.MyViewHolder(orderItemView);
     }
 

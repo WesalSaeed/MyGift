@@ -17,6 +17,7 @@ import com.wesal.mygift.SellerFragments.EditProductFragment;
 import com.wesal.mygift.SellerFragments.SellerRegisterFragment;
 import com.wesal.mygift.interfaces.MediatorInterface;
 import com.wesal.mygift.model.BestSeller;
+import com.wesal.mygift.model.CartItem;
 import com.wesal.mygift.model.Category;
 import com.wesal.mygift.model.MyConstants;
 import com.wesal.mygift.model.NewProduct;
@@ -76,6 +77,9 @@ public class SecondActivity extends AppCompatActivity implements MediatorInterfa
                     break;
 
                 case MyConstants.FRAGMENT_CART_CHECKOUT:
+                    CartCheckoutFragment fragmentCh = new CartCheckoutFragment();
+                    CartItem mCart = (CartItem) getIntent().getSerializableExtra(MyConstants.FRAGMENT_DATA);
+                    fragmentCh.setCart(mCart);
                     changeFragmentTo(new CartCheckoutFragment(), CartCheckoutFragment.class.getSimpleName());
                     break;
 

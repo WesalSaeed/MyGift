@@ -20,6 +20,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -39,6 +40,8 @@ import com.wesal.mygift.model.MyConstants;
 import com.wesal.mygift.model.Seller;
 
 import java.util.UUID;
+
+import static android.app.Activity.RESULT_OK;
 
 public class SellerRegisterFragment extends Fragment {
 
@@ -288,5 +291,31 @@ public class SellerRegisterFragment extends Fragment {
 
     }
 
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        //check if there is result is Ok AND there is data
+        if (resultCode == RESULT_OK && data != null) {
+
+            //check request Code
+            if (requestCode == REQUEST_CODE_GALLERY) {
+
+                displayImageWithGlide(data);
+
+            }
+
+        }
+
+    }
+
+    private void displayImageWithGlide(Intent data) {
+        //get image Uri
+
+        mImgUri = data.getData();
+
+        Glide.with(getActivity())
+                .load(mImgUri)// image to display
+                .into(ivSellerImage);// imageview
+    }
 
 }

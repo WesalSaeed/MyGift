@@ -22,6 +22,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.wesal.mygift.Adapters.CartAdapter;
 import com.wesal.mygift.R;
+import com.wesal.mygift.model.CartItem;
 import com.wesal.mygift.model.MyConstants;
 import com.wesal.mygift.model.Product;
 
@@ -31,6 +32,7 @@ public class CartCheckoutFragment extends Fragment {
 
     ArrayList<Product> mCartProducts;
     CartAdapter mAdapter;
+    private CartItem mCart;
     private TextView tvSubTotal;
     private TextView tvShip;
     private TextView tvTotal;
@@ -123,4 +125,7 @@ public class CartCheckoutFragment extends Fragment {
         tvTotal.setText("OMR " + total);
     }
 
+    public void setCart(CartItem cart) {
+        mCart = cart;
+    }
 }

@@ -10,5 +10,5 @@
         android:layout_height="match_parent"
         tools:layout_editor_absoluteX="181dp"
         tools:layout_editor_absoluteY="229dp"
-        tools:listitem="@layout/order_list_item" />
+        tools:listitem="@layout/list_item_order" />
 </androidx.constraintlayout.widget.ConstraintLayout>
